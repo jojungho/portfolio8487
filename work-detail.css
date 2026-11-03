@@ -1,0 +1,33 @@
+body.work-detail-page { background: #1a1a1a; }
+.work-detail-page .project-site-header { position: relative; border-bottom: 0; }
+.work-detail { width: min(1200px, 80%); margin: 0 auto; padding: clamp(40px, 5vw, 80px) 0 clamp(72px, 8vw, 128px); }
+.work-detail__title { margin: 0 0 clamp(42px, 5vw, 76px); color: #f7f7f7; font-size: clamp(34px, 3vw, 50px); font-weight: 500; line-height: 1.15; letter-spacing: -.025em; text-align: center; }
+.work-detail__video { width: 100%; aspect-ratio: 16 / 9; background: #080808; }
+.work-detail__video iframe { display: block; width: 100%; height: 100%; border: 0; }
+.work-detail__description p { white-space: pre-line; }
+.work-detail__watch { display: flex; justify-content: flex-end; margin-top: 17px; }
+.work-detail__watch a { color: #999; font-size: 11px; line-height: 1.5; }
+.work-detail__watch a:hover { color: #fff; }
+.work-detail__information { width: 86%; margin: clamp(45px, 5vw, 80px) auto 0; display: grid; grid-template-columns: 1.7fr 1fr; gap: clamp(30px, 5vw, 80px); }
+.work-detail__description p { margin: 0; color: #b8b8b8; font-size: clamp(15px, 1.1vw, 18px); line-height: 1.9; word-break: keep-all; }
+.work-detail__credits { margin: 0; display: grid; align-content: start; gap: 25px; }
+.work-detail__credits dt { margin-bottom: 9px; color: #ddd; font-size: 13px; font-weight: 600; }
+.work-detail__credits dd { margin: 0; color: #999; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.work-detail__back { display: flex; justify-content: center; margin-top: clamp(64px, 7vw, 100px); }
+.work-detail__back a { border: 1px solid #555; padding: 15px 30px; border-radius: 999px; color: #ddd; font-size: 10px; letter-spacing: .12em; transition: color 180ms ease, background 180ms ease; }
+.work-detail__back a:hover { color: #151515; background: #eee; }
+.work-detail-footer { width: 90%; margin: 0 auto; padding: 25px 0; border-top: 1px solid #303030; color: #777; font-size: 9px; letter-spacing: .14em; }
+@media (max-width: 900px) {
+  .work-detail { width: 88%; }
+  .work-detail__information { width: 100%; gap: 32px; }
+  .work-detail-page .header-contact { display: inline-flex; }
+}
+@media (max-width: 620px) {
+  .work-detail { width: 92%; padding-top: 40px; }
+  .work-detail__title { margin-bottom: 32px; }
+  .work-detail__information { width: 94%; grid-template-columns: 1fr; gap: 30px; }
+  .work-detail__credits { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .work-detail-page .header-contact { font-size: 8px; letter-spacing: .04em; gap: 8px; }
+  .work-detail__description p { font-size: 14px; }
+  .work-detail__watch a { font-size: 10px; }
+}

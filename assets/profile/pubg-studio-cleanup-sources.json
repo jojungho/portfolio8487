@@ -1,0 +1,38 @@
+[
+  {
+    "file": "assets/profile/pubg-studio-nightmare-of-troi-clean.png",
+    "source": "User-provided PUBG Studio thumbnail; video playback UI removed",
+    "source_file": "C:/Users/j8487/AppData/Local/Temp/codex-clipboard-27a381ac-a7ab-4072-aa72-8ac82328f619.png",
+    "generated_source": "C:\\Users\\j8487\\.codex\\generated_images\\01a18539-5955-70c3-853c-d808e8535344\\exec-ef3aad53-c394-4966-bf5d-246d94e937f3.png",
+    "title": "Neverending Nightmare of Troi",
+    "editing_tool": "Built-in image_gen",
+    "edit_prompt": "Use case: precise-object-edit. Input image is the sole EDIT TARGET: an existing PUBG NEW STATE portfolio thumbnail. Make ONLY a localized cleanup of video-player UI: erase the white '0:48' timestamp and its small dark duration badge at the bottom right, and erase any thin playback progress bar at the extreme bottom edge if present. Reconstruct only those tiny regions with the immediately surrounding background. Preserve the original image as exactly as possible, including PUBG NEW STATE logo at top right and 'NEVERENDING' / 'NIGHTMARE OF TROI' lettering, jack-o-lantern scarecrow and lanterns. Keep all lettering and logos exactly unchanged, as well as every character's face, pose, costume, props, colors, framing, original graphic design and aspect ratio. No image enhancement, sharpening, restyling, repainting, cropping, or stretching. Do not invent or correct text. Return a single cleaned thumbnail, not a collage."
+  },
+  {
+    "file": "assets/profile/pubg-studio-skull-king-clean.png",
+    "source": "User-provided PUBG Studio thumbnail; video playback UI removed",
+    "source_file": "C:/Users/j8487/AppData/Local/Temp/codex-clipboard-ac1a5c8f-f294-47a7-8d83-cdf1114a05fa.png",
+    "generated_source": "C:\\Users\\j8487\\.codex\\generated_images\\01a18539-5955-70c3-853c-d808e8535344\\exec-9abd7cdb-af39-4715-a516-26a872c65688.png",
+    "title": "The Undead Skull King",
+    "editing_tool": "Built-in image_gen",
+    "edit_prompt": "Use case: precise-object-edit. Input image is the sole EDIT TARGET: an existing PUBG NEW STATE portfolio thumbnail. Make ONLY a localized cleanup of video-player UI: erase the white '1:03' timestamp and its small dark duration badge at the bottom right, and erase any thin playback progress bar at the extreme bottom edge if present. Reconstruct only those tiny regions with the immediately surrounding background. Preserve the original image as exactly as possible, including PUBG NEW STATE logo at top left and 'THE UNDEAD' / 'SKULL KING' lettering, skull character with glowing cyan eyes and ornate armor. Keep all lettering and logos exactly unchanged, as well as every character's face, pose, costume, props, colors, framing, original graphic design and aspect ratio. No image enhancement, sharpening, restyling, repainting, cropping, or stretching. Do not invent or correct text. Return a single cleaned thumbnail, not a collage."
+  },
+  {
+    "file": "assets/profile/pubg-studio-lord-of-blood-clean.png",
+    "source": "User-provided PUBG Studio thumbnail; video playback UI removed",
+    "source_file": "C:/Users/j8487/AppData/Local/Temp/codex-clipboard-cd0a5c70-9f06-493d-901c-17ce38b732a5.png",
+    "generated_source": "C:\\Users\\j8487\\.codex\\generated_images\\01a18539-5955-70c3-853c-d808e8535344\\exec-b526aaad-2aa5-499e-a2a0-0059683179fc.png",
+    "title": "Face the Lord of Blood",
+    "editing_tool": "Built-in image_gen",
+    "edit_prompt": "Use case: precise-object-edit. Input image is the sole EDIT TARGET: an existing PUBG NEW STATE portfolio thumbnail. Make ONLY a localized cleanup of video-player UI: erase the white '0:57' timestamp and its small dark duration badge at the bottom right, and erase any thin playback progress bar at the extreme bottom edge if present. Reconstruct only those tiny regions with the immediately surrounding background. Preserve the original image as exactly as possible, including PUBG NEW STATE logo at top left and 'FACE THE' / 'LORD OF BLOOD' lettering, seated armored character, red mask and detailed armor. Keep all lettering and logos exactly unchanged, as well as every character's face, pose, costume, props, colors, framing, original graphic design and aspect ratio. No image enhancement, sharpening, restyling, repainting, cropping, or stretching. Do not invent or correct text. Return a single cleaned thumbnail, not a collage."
+  },
+  {
+    "file": "assets/profile/pubg-studio-frozen-wonderland-clean.png",
+    "source": "User-provided PUBG Studio thumbnail; video playback UI removed",
+    "source_file": "C:/Users/j8487/AppData/Local/Temp/codex-clipboard-d6bbda1f-b966-44bb-8dd9-b4500314260a.png",
+    "generated_source": "C:\\Users\\j8487\\.codex\\generated_images\\01a18539-5955-70c3-853c-d808e8535344\\exec-1fb7e438-62f5-4724-9488-0cf5fef67bd8.png",
+    "title": "Queen of the Frozen Wonderland",
+    "editing_tool": "Built-in image_gen",
+    "edit_prompt": "Use case: precise-object-edit. Input image is the sole EDIT TARGET: an existing PUBG NEW STATE portfolio thumbnail. Make ONLY a localized cleanup of video-player UI: erase the white '1:09' timestamp and its small dark duration badge at the bottom right, and erase any thin playback progress bar at the extreme bottom edge if present. Reconstruct only those tiny regions with the immediately surrounding background. Preserve the original image as exactly as possible, including NEW STATE MOBILE logo at top left and 'QUEEN OF THE' / 'FROZEN WONDERLAND' lettering, snow queen with blue ice gun, snow environment and original thin frame. Keep all lettering and logos exactly unchanged, as well as every character's face, pose, costume, props, colors, framing, original graphic design and aspect ratio. No image enhancement, sharpening, restyling, repainting, cropping, or stretching. Do not invent or correct text. Return a single cleaned thumbnail, not a collage."
+  }
+]

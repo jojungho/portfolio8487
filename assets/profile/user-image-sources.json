@@ -1,0 +1,40 @@
+[
+  {
+    "file": "assets/profile/digital-frontier-damnation.png",
+    "source": "User-provided BIOHAZARD: DAMNATION poster"
+  },
+  {
+    "file": "assets/profile/pubg-new-state.png",
+    "source": "User-provided PUBG: NEW STATE image"
+  },
+  {
+    "file": "assets/profile/mofac-animation-rooftop.png",
+    "source": "User-provided MOFAC animation image",
+    "width": 1024,
+    "height": 576
+  },
+  {
+    "file": "assets/profile/mofac-aion-dragons.png",
+    "source": "User-provided AION image replacing the MOFAC gallery's eleventh image",
+    "width": 550,
+    "height": 309
+  },
+  {
+    "file": "assets/profile/krafton-pgc-2022-grand-final-clean.png",
+    "source": "User-provided PGC 2022 Grand Final Opening Trailer thumbnail",
+    "source_file": "codex-clipboard-626fcc5a-8122-46bf-be64-0e49119e8707.png",
+    "width": 1704,
+    "height": 923,
+    "editing_tool": "Built-in image_gen",
+    "edit_prompt": "Use case: precise-object-edit. Input image is the edit target, a PUBG Global Championship 2022 Grand Final Opening Trailer thumbnail to be displayed as a credited portfolio image. Perform ONLY a small cleanup of player UI: remove the black rounded duration badge and white '2:37' digits at the bottom right, and remove any thin red video-progress bar along the very bottom edge if present, inpainting these tiny regions to match the adjacent background. Preserve everything else as exactly as possible: the full scene, character face, hair, pose, sword, motorcycle, neon environment, original framing and aspect ratio, color and detail, ALL original logos at top left including PUBG GLOBAL CHAMPIONSHIP DUBAI 2022 and the PGC mark, and large lettering 'GRAND FINAL OPENING TRAILER' exactly as shown. Do not replace or restyle the image; do not crop off text or logos, do not add any other elements. Return the cleaned thumbnail."
+  },
+  {
+    "file": "assets/profile/krafton-pubg-8th-anniversary-clean.png",
+    "source": "User-provided PUBG 8th-anniversary cinematic trailer thumbnail",
+    "source_file": "codex-clipboard-d70252c2-2d13-4aa9-aae0-8662fd3b28a4.png",
+    "width": 1672,
+    "height": 941,
+    "editing_tool": "Built-in image_gen",
+    "edit_prompt": "Use case: precise-object-edit. This single input image is the EDIT TARGET, a Korean PUBG 8th-anniversary cinematic trailer thumbnail. Perform ONLY a localized removal of playback UI: erase the thin bright red/magenta playback progress line at the very bottom edge and erase the white '3:25' duration and its black background badge in the bottom right corner. Inpaint those tiny removed areas with the immediately adjacent image background. Preserve the original yellow/gold rounded border, the yellow circular helmet logo at top right, the blue glowing helmeted soldier and all scene details, and especially the EXACT original Korean lettering '시네마틱 트레일러' and '배틀그라운드 8주년' with their original typography and placement. Keep original layout, aspect ratio, framing, colors and content unchanged. Do not redraw, restyle, enhance, crop, stretch, change lettering, or add anything. Return one cleaned thumbnail."
+  }
+]

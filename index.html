@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080808" />
+    <meta name="description" content="Jo Jung Ho — Rigging Artist." />
+    <title>JO JUNG HO — Rigging Artist</title>
+    <link rel="preload" as="image" href="assets/hero-concept.png" fetchpriority="high" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <script type="module" src="hero-reels.js"></script>
+  </head>
+  <body>
+    <header class="site-header site-header--home" aria-label="Main navigation">
+      <nav class="main-nav">
+        <a href="#portfolio">WORK</a>
+        <a href="#featured">FEATURED</a>
+      </nav>
+      <a class="header-contact" href="#featured">EXPLORE WORK <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main>
+      <section class="hero page-section" id="portfolio" aria-labelledby="hero-title">
+        <div class="hero__poster" role="img" aria-label="A vast ruined sci-fi structure overlooking a misty landscape"></div>
+        <video class="hero__video" id="hero-video" data-hero-reel data-src="assets/videos/hero-reel.mp4" muted loop playsinline preload="none" poster="assets/hero-concept.png" aria-hidden="true"></video>
+        <video class="hero__video" id="hero-video-2" data-hero-reel data-src="assets/videos/hero-reel-02.mp4" muted loop playsinline preload="none" poster="assets/projects/creature-rigging.png" aria-hidden="true"></video>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="hero__copy">
+          <h1 id="hero-title">JO JUNG HO</h1>
+          <p class="hero__role">RIGGING ARTIST</p>
+        </div>
+
+        <div class="hero-reels" role="group" aria-label="배경 영상 선택">
+          <button class="hero-reels__button is-active" type="button" data-reel-index="0" aria-controls="hero-video" aria-pressed="true" aria-label="첫 번째 배경 영상 선택"><span class="hero-reels__number">01</span><span class="hero-reels__label">VIDEO</span><span class="hero-reels__line" aria-hidden="true"></span></button>
+          <button class="hero-reels__button" type="button" data-reel-index="1" aria-controls="hero-video-2" aria-pressed="false" aria-label="두 번째 배경 영상 선택"><span class="hero-reels__number">02</span><span class="hero-reels__label">VIDEO</span><span class="hero-reels__line" aria-hidden="true"></span></button>
+        </div>
+        <p class="hero-reels__status" id="hero-reel-status" role="status"></p>
+
+        <a class="scroll-cue" href="#featured" aria-label="Scroll to featured work">
+          <span class="scroll-cue__mouse"><span></span></span>
+          <span class="scroll-cue__label">SCROLL TO EXPLORE</span>
+        </a>
+
+        <nav class="section-steps" aria-label="Page sections">
+          <a class="section-step is-active" href="#portfolio" data-step="portfolio" aria-current="location">
+            <span class="section-step__dot"></span><span class="section-step__number">01</span><span class="section-step__label">PORTFOLIO</span>
+          </a>
+          <span class="section-steps__line" aria-hidden="true"></span>
+          <a class="section-step" href="#featured" data-step="featured">
+            <span class="section-step__dot"></span><span class="section-step__number">02</span><span class="section-step__label">FEATURED</span>
+          </a>
+        </nav>
+      </section>
+
+      <section class="featured page-section" id="featured" aria-labelledby="featured-title">
+        <div class="featured__inner">
+          <div class="featured__heading">
+            <div>
+              <p class="section-index"><span>02</span><span class="section-index__rule"></span></p>
+              <h2 id="featured-title">FEATURED</h2>
+            </div>
+          </div>
+
+          <div class="project-strip" aria-label="Featured projects">
+            <a class="project-card" href="projects/creature-rigging.html" aria-label="Explore CINEMATIC&amp;VFX ShowReel">
+              <img class="project-card__image" src="assets/projects/creature-rigging.png" alt="Blue science-fiction eye with a small silhouetted figure" loading="lazy" width="750" height="934" />
+              <span class="project-card__content"><span class="project-card__title"><span class="project-card__title-line">CINEMATIC&amp;VFX</span><span class="project-card__title-line">ShowReel</span></span><span class="project-card__action">View more</span></span>
+            </a>
+            <a class="project-card" href="projects/cloth-simulation.html" aria-label="Explore PROFILE">
+              <img class="project-card__image" src="assets/projects/cloth-simulation.png" alt="A ruined science-fiction city shrouded in mist beneath massive structures" loading="lazy" width="1200" height="675" />
+              <span class="project-card__content"><span class="project-card__title">PROFILE</span><span class="project-card__action">View more</span></span>
+            </a>
+          </div>
+
+          <p class="featured__note">CONCEPT STUDIES · TEST IMAGES</p>
+        </div>
+
+        <nav class="section-steps section-steps--featured" aria-label="Page sections">
+          <a class="section-step" href="#portfolio" data-step="portfolio">
+            <span class="section-step__dot"></span><span class="section-step__number">01</span><span class="section-step__label">PORTFOLIO</span>
+          </a>
+          <span class="section-steps__line" aria-hidden="true"></span>
+          <a class="section-step is-active" href="#featured" data-step="featured" aria-current="location">
+            <span class="section-step__dot"></span><span class="section-step__number">02</span><span class="section-step__label">FEATURED</span>
+          </a>
+        </nav>
+      </section>
+    </main>
+
+  </body>
+</html>

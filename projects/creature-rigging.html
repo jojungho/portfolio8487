@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#151515" />
+    <meta name="description" content="Cinematic and VFX — Jo Jung Ho, Rigging Artist." />
+    <title>CINEMATIC&amp;VFX — JO JUNG HO</title>
+    <link rel="preload" as="image" href="../assets/projects/creature-rigging.png" fetchpriority="high" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../project.css" />
+    <script src="../project.js" defer></script>
+    <script type="module" src="../portfolio-content.js"></script>
+    
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#works">Skip to works</a>
+    <header class="site-header project-site-header">
+      <a class="wordmark" href="../index.html" aria-label="Jo Jung Ho, home">JO JUNG HO<span>.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html#portfolio">PORTFOLIO</a>
+        <a href="../index.html#featured">FEATURED</a>
+        <a href="#works">WORKS</a>
+      </nav>
+      <a class="header-contact" href="../index.html#featured">BACK TO WORK <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="project-hero project-hero--cinematic" aria-labelledby="category-title">
+        <img class="project-hero__image" src="../assets/projects/creature-rigging.png" alt="Original cinematic creature concept, created as a test image" fetchpriority="high" />
+        <div class="project-hero__copy">
+          <p class="project-hero__eyebrow">JO JUNG HO · SELECTED STUDIES / 01</p>
+          <h1 id="category-title" aria-label="CINEMATIC &amp; VFX"><span class="project-hero__initial">C</span>INEMATIC<br />&amp;VFX</h1>
+          <p class="project-hero__subtitle">Structure, character and the weight of movement.</p>
+        </div>
+        <nav class="category-nav" aria-label="Project categories">
+          <a href="creature-rigging.html" aria-current="page"><span class="category-nav__index">01</span><span>CINEMATIC<br />&amp;VFX</span></a>
+          <a href="cloth-simulation.html"><span class="category-nav__index">02</span><span>PROFILE</span></a>
+          <a role="link" aria-disabled="true" aria-label="03 잠금" title="잠긴 카테고리"><span class="category-nav__index">03</span><span class="category-lock-icon" aria-hidden="true"></span></a>
+          <a role="link" aria-disabled="true" aria-label="04 잠금" title="잠긴 카테고리"><span class="category-nav__index">04</span><span class="category-lock-icon" aria-hidden="true"></span></a>
+          <a role="link" aria-disabled="true" aria-label="05 잠금" title="잠긴 카테고리"><span class="category-nav__index">05</span><span class="category-lock-icon" aria-hidden="true"></span></a>
+          <a role="link" aria-disabled="true" aria-label="06 잠금" title="잠긴 카테고리"><span class="category-nav__index">06</span><span class="category-lock-icon" aria-hidden="true"></span></a>
+        </nav>
+      </section>
+
+      <section class="project-works project-works--tiles" id="works" aria-labelledby="works-title">
+        <div class="project-container">
+          <div class="works-heading">
+            <h2 id="works-title">WORKS</h2>
+            <a class="works-manage" href="../admin/?category=game-cinematic" data-local-video-manager hidden>영상 관리 <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="works-filters" role="group" aria-label="Works category" data-works-filters>
+            <button type="button" data-work-filter="all" aria-pressed="true" aria-controls="works-grid">ALL</button>
+            <button type="button" data-work-filter="showreel" aria-pressed="false" aria-controls="works-grid">ShowReel</button>
+            <button type="button" data-work-filter="rigging" aria-pressed="false" aria-controls="works-grid">Rigging</button>
+          </div>
+          <div class="works-grid works-grid--video works-grid--filterable" id="works-grid" data-works-category="game-cinematic">
+          <article class="work-study" data-managed-video="bt21" data-work-type="showreel">
+            <a class="work-study__button" href="bt21.html" data-preview-video="k6hnPMril98" data-preview-state="idle" aria-label="BT21 — view project">
+              <span class="work-study__image">
+                <img src="https://i.ytimg.com/vi/k6hnPMril98/maxresdefault.jpg" alt="BT21 — 내일의 우주스타 BT21, 착륙 완료!" loading="lazy" decoding="async" />
+                <span class="work-study__preview" aria-hidden="true"><span data-preview-mount></span></span>
+              </span>
+              <span class="work-study__title">BT21</span>
+            </a>
+          </article>
+          </div>
+          <p class="works-empty" data-works-empty role="status" hidden>No works in this category yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="project-footer">
+      <div class="project-container">
+        <nav class="project-footer__nav" aria-label="Explore more categories">
+          <span class="category-pager category-pager--locked" aria-label="06 잠금"><span>06 · LOCKED</span></span>
+          <a class="back-to-work" href="../index.html#featured">ALL FEATURED WORK ↗</a>
+          <a class="category-pager category-pager--next" href="cloth-simulation.html"><span>NEXT CATEGORY →</span><strong>PROFILE</strong></a>
+        </nav>
+        <div class="project-footer__bottom">
+          <a href="../index.html">JO JUNG HO</a>
+          <p>CONCEPT STUDIES USE AI-GENERATED TEST IMAGERY</p>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="study-dialog" id="study-dialog" aria-labelledby="study-dialog-title">
+      <div class="study-dialog__bar">
+        <h2 id="study-dialog-title">Concept study</h2>
+        <button class="study-dialog__close" type="button" data-close-study autofocus aria-label="Close concept image">CLOSE <span aria-hidden="true">×</span></button>
+      </div>
+      <img class="study-dialog__image" id="study-dialog-image" alt="" />
+      <p class="study-dialog__note">AI-GENERATED CONCEPT STUDY · TEST IMAGE</p>
+    </dialog>
+  </body>
+</html>
+

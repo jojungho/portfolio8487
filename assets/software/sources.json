@@ -1,0 +1,27 @@
+{
+  "purpose": "Software icons displayed next to Rigging, CFX in the profile introduction",
+  "assets": [
+    {
+      "name": "Autodesk Maya",
+      "file": "maya.png",
+      "source": "https://www.pugetsystems.com/wp-content/uploads/2022/08/Autodesk-Maya-Icon.png"
+    },
+    {
+      "name": "Autodesk 3ds Max",
+      "file": "3ds-max.png",
+      "source": "https://www.pugetsystems.com/wp-content/uploads/2022/08/Autodesk-3ds-Max-Icon.png"
+    },
+    {
+      "name": "SideFX Houdini",
+      "file": "houdini.png",
+      "source": "https://cdn.cghero.com/system/front/taxonomies/software/houdini.png?size=sm"
+    },
+    {
+      "name": "Unreal Engine",
+      "file": "unreal-engine.svg",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/20/UE_Logo_Black_Centered.svg",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:UE_Logo_Black_Centered.svg",
+      "display": "White monochrome using CSS on the dark profile background"
+    }
+  ]
+}

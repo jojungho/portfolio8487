@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Need for Speed: Edge",
+    "file": "assets/profile/mofac-need-for-speed-edge.jpg",
+    "sourceUrl": "https://www.filmweb.pl/videogame/Need+for+Speed:+Edge-2017-767503",
+    "assetUrl": "https://fwcdn.pl/fpo/75/03/767503/7741239_1.3.jpg",
+    "width": 431,
+    "height": 750,
+    "bytes": 99420,
+    "mime": "image/jpeg"
+  },
+  {
+    "title": "여우각시별",
+    "file": "assets/profile/mofac-where-stars-land.jpg",
+    "sourceUrl": "https://news.sbs.co.kr/news/endPage.do?news_id=N1004944083",
+    "assetUrl": "https://img.sbs.co.kr/newsnet/etv/upload/2018/09/20/30000613647.jpg",
+    "width": 900,
+    "height": 1346,
+    "bytes": 755010,
+    "mime": "image/jpeg"
+  },
+  {
+    "title": "프로젝트 TL",
+    "file": "assets/profile/mofac-project-tl.jpg",
+    "sourceUrl": "https://www.etnews.com/20171107000292",
+    "assetUrl": "https://img.etnews.com/photonews/1711/1010638_20171107190531_095_0003.jpg",
+    "width": 700,
+    "height": 274,
+    "bytes": 21794,
+    "mime": "image/jpeg"
+  },
+  {
+    "title": "아스달 연대기",
+    "file": "assets/profile/mofac-arthdal-chronicles.jpg",
+    "sourceUrl": "https://sp.kdaisuki.jp/news/detail/?id=144729",
+    "assetUrl": "https://sp.kdaisuki.jp/api/image/news/?i=144729&n=1",
+    "width": 960,
+    "height": 1368,
+    "bytes": 526336,
+    "mime": "image/jpeg"
+  },
+  {
+    "title": "아이온",
+    "file": "assets/profile/mofac-aion.jpg",
+    "sourceUrl": "https://about.ncsoft.com/news/article/press-release-20190522",
+    "assetUrl": "https://blogfiles.ncsoft.net/news/b1a6c45d-f263-4cb1-970b-28cb92e1aedb.jpg",
+    "width": 900,
+    "height": 473,
+    "bytes": 303558,
+    "mime": "image/jpeg"
+  },
+  {
+    "title": "어서와",
+    "file": "assets/profile/mofac-welcome.jpg",
+    "sourceUrl": "https://mylovekbs.kbs.co.kr/index.html?contents_id=70000000334364&sname=mylovekbs&source=mylovekbs&stype=magazine",
+    "assetUrl": "https://scf.static.kbs.co.kr/image/NBCONTENTSMYLOVEKBS/NBCONTENTSMYLOVEKBS_70000000334364_20200226_20200226101500___EDITOR_01.jpg",
+    "width": 668,
+    "height": 1000,
+    "bytes": 452315,
+    "mime": "image/jpeg"
+  },
+  {
+    "title": "킹 오브 킹스",
+    "file": "assets/profile/mofac-king-of-kings.webp",
+    "sourceUrl": "https://www.angel.com/movies/king-of-kings",
+    "assetUrl": "https://images.angelstudios.com/image/upload/q_auto,w_620,h_930,f_webp,c_scale/v1741966333/studio-app/catalog/80a48954-060b-4649-bf0c-7628fb1a18d8",
+    "width": 620,
+    "height": 930,
+    "bytes": 91912,
+    "mime": "image/webp"
+  }
+]

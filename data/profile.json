@@ -1,0 +1,364 @@
+{
+  "version": 1,
+  "name": "JO JUNGHO",
+  "specialty": "Rigging, CFX",
+  "careers": [
+    {
+      "id": "krafton",
+      "company": "KRAFTON Inc.",
+      "location": "서울",
+      "team": "Global Creative Div",
+      "start": "2022-03",
+      "end": "2026-11",
+      "current": false,
+      "role": "Rigging · CFX",
+      "position": "파트장 / 사원",
+      "projects": [
+        "시네마틱 제작"
+      ],
+      "layout": "video",
+      "images": [
+        {
+          "id": "krafton-image-1",
+          "src": "assets/profile/krafton-pgc-2022-grand-final-clean.png",
+          "title": "PGC 2022 Grand Final Opening Trailer",
+          "alt": "PUBG Global Championship 2022 Grand Final Opening Trailer 이미지",
+          "width": 1704,
+          "height": 923
+        },
+        {
+          "id": "krafton-image-2",
+          "src": "assets/profile/krafton-tarae-clean.png",
+          "title": "TARAE The Unbound",
+          "alt": "TARAE The Unbound 이미지",
+          "width": 1670,
+          "height": 942
+        },
+        {
+          "id": "krafton-image-3",
+          "src": "assets/profile/krafton-project-zeta-clean.png",
+          "title": "PROJECT ZETA",
+          "alt": "PROJECT ZETA 이미지",
+          "width": 1688,
+          "height": 932
+        },
+        {
+          "id": "krafton-image-4",
+          "src": "assets/profile/krafton-no-law-clean.png",
+          "title": "NO LAW",
+          "alt": "NO LAW 이미지",
+          "width": 1665,
+          "height": 945
+        },
+        {
+          "id": "krafton-image-5",
+          "src": "assets/profile/krafton-pubg-deadeye-clean.png",
+          "title": "PUBG 트레일러",
+          "alt": "PUBG 트레일러 이미지",
+          "width": 1659,
+          "height": 948
+        },
+        {
+          "id": "krafton-image-6",
+          "src": "assets/profile/krafton-pubg-loopy-clean.png",
+          "title": "PUBG MOBILE × ZANMANG LOOPY",
+          "alt": "PUBG MOBILE × ZANMANG LOOPY 이미지",
+          "width": 1697,
+          "height": 927
+        },
+        {
+          "id": "krafton-image-7",
+          "src": "assets/profile/krafton-pubg-deston-clean.png",
+          "title": "PUBG DESTON Cinematic Trailer",
+          "alt": "PUBG DESTON Cinematic Trailer 이미지",
+          "width": 1675,
+          "height": 939
+        },
+        {
+          "id": "krafton-image-8",
+          "src": "assets/profile/krafton-pubg-razer-clean.png",
+          "title": "Razer 헤드셋 시네마틱",
+          "alt": "Razer 헤드셋 시네마틱 이미지",
+          "width": 1647,
+          "height": 955
+        },
+        {
+          "id": "krafton-image-9",
+          "src": "assets/profile/krafton-pubg-8th-anniversary-clean.png",
+          "title": "배틀그라운드 8주년 시네마틱 트레일러",
+          "alt": "배틀그라운드 8주년 시네마틱 트레일러 이미지",
+          "width": 1672,
+          "height": 941
+        }
+      ]
+    },
+    {
+      "id": "pubg",
+      "company": "PUBG Studio",
+      "location": "서울",
+      "team": "",
+      "start": "2021-01",
+      "end": "2022-03",
+      "current": false,
+      "role": "Rigging · CFX · Pipeline",
+      "position": "사원",
+      "projects": [
+        "PUBG: NEW STATE 시네마틱 제작"
+      ],
+      "layout": "video",
+      "images": [
+        {
+          "id": "pubg-image-1",
+          "src": "assets/profile/pubg-new-state.png",
+          "title": "PUBG: NEW STATE",
+          "alt": "PUBG: NEW STATE 로고와 헬멧을 쓴 캐릭터",
+          "width": 910,
+          "height": 512
+        },
+        {
+          "id": "pubg-image-2",
+          "src": "assets/profile/pubg-studio-nightmare-of-troi-clean.png",
+          "title": "Neverending Nightmare of Troi",
+          "alt": "Neverending Nightmare of Troi 이미지",
+          "width": 1679,
+          "height": 937
+        },
+        {
+          "id": "pubg-image-3",
+          "src": "assets/profile/pubg-studio-skull-king-clean.png",
+          "title": "The Undead Skull King",
+          "alt": "The Undead Skull King 이미지",
+          "width": 1669,
+          "height": 942
+        },
+        {
+          "id": "pubg-image-4",
+          "src": "assets/profile/pubg-studio-lord-of-blood-clean.png",
+          "title": "Face the Lord of Blood",
+          "alt": "Face the Lord of Blood 이미지",
+          "width": 1703,
+          "height": 923
+        },
+        {
+          "id": "pubg-image-5",
+          "src": "assets/profile/pubg-studio-frozen-wonderland-clean.png",
+          "title": "Queen of the Frozen Wonderland",
+          "alt": "Queen of the Frozen Wonderland 이미지",
+          "width": 1706,
+          "height": 922
+        }
+      ]
+    },
+    {
+      "id": "mofac",
+      "company": "MOFAC",
+      "location": "서울",
+      "team": "",
+      "start": "2015-09",
+      "end": "2021-01",
+      "current": false,
+      "role": "Rigging · CFX",
+      "position": "팀장 / 사원",
+      "projects": [
+        "영화 VFX, 시네마틱 제작"
+      ],
+      "layout": "poster",
+      "images": [
+        {
+          "id": "mofac-image-1",
+          "src": "assets/profile/mofac-monkey-king-2.jpg",
+          "title": "The Monkey King 2",
+          "alt": "The Monkey King 2 포스터",
+          "width": 450,
+          "height": 675
+        },
+        {
+          "id": "mofac-image-2",
+          "src": "assets/profile/mofac-need-for-speed-edge.jpg",
+          "title": "Need for Speed: Edge",
+          "alt": "Need for Speed: Edge 포스터",
+          "width": 431,
+          "height": 750
+        },
+        {
+          "id": "mofac-image-3",
+          "src": "assets/profile/mofac-journey-to-the-west-2.jpg",
+          "title": "서유기2: 요괴대전",
+          "alt": "서유기2: 요괴대전 포스터",
+          "width": 560,
+          "height": 840
+        },
+        {
+          "id": "mofac-image-4",
+          "src": "assets/profile/mofac-dunjia.jpg",
+          "title": "기문둔갑",
+          "alt": "기문둔갑 포스터",
+          "width": 900,
+          "height": 1280
+        },
+        {
+          "id": "mofac-image-5",
+          "src": "assets/profile/mofac-monstrum.jpg",
+          "title": "물괴",
+          "alt": "물괴 포스터",
+          "width": 2000,
+          "height": 2850
+        },
+        {
+          "id": "mofac-image-6",
+          "src": "assets/profile/mofac-detective-dee.jpg",
+          "title": "적인걸: 사대천왕",
+          "alt": "적인걸: 사대천왕 포스터",
+          "width": 402,
+          "height": 550
+        },
+        {
+          "id": "mofac-image-7",
+          "src": "assets/profile/mofac-where-stars-land.jpg",
+          "title": "여우각시별",
+          "alt": "여우각시별 포스터",
+          "width": 900,
+          "height": 1346
+        },
+        {
+          "id": "mofac-image-8",
+          "src": "assets/profile/mofac-jangsari.jpg",
+          "title": "장사리: 잊혀진 영웅들",
+          "alt": "장사리: 잊혀진 영웅들 포스터",
+          "width": 2000,
+          "height": 2857
+        },
+        {
+          "id": "mofac-image-9",
+          "src": "assets/profile/mofac-project-tl.jpg",
+          "title": "프로젝트 TL",
+          "alt": "프로젝트 TL 포스터",
+          "width": 700,
+          "height": 274
+        },
+        {
+          "id": "mofac-image-10",
+          "src": "assets/profile/mofac-arthdal-chronicles.jpg",
+          "title": "아스달 연대기",
+          "alt": "아스달 연대기 포스터",
+          "width": 960,
+          "height": 1368
+        },
+        {
+          "id": "mofac-image-11",
+          "src": "assets/profile/mofac-aion-dragons.png",
+          "title": "아이온",
+          "alt": "AION 로고와 푸른빛·보랏빛을 내뿜는 두 용",
+          "width": 550,
+          "height": 309
+        },
+        {
+          "id": "mofac-image-12",
+          "src": "assets/profile/mofac-welcome.jpg",
+          "title": "어서와",
+          "alt": "어서와 포스터",
+          "width": 668,
+          "height": 1000
+        },
+        {
+          "id": "mofac-image-13",
+          "src": "assets/profile/mofac-king-of-kings.webp",
+          "title": "킹 오브 킹스",
+          "alt": "킹 오브 킹스 포스터",
+          "width": 620,
+          "height": 930
+        },
+        {
+          "id": "mofac-image-14",
+          "src": "assets/profile/mofac-animation-rooftop.png",
+          "title": "MOFAC 애니메이션 작품",
+          "alt": "야경이 보이는 옥상 식탁에 모인 애니메이션 캐릭터들",
+          "width": 1024,
+          "height": 576
+        }
+      ]
+    },
+    {
+      "id": "digital-frontier",
+      "company": "Digital Frontier Inc.",
+      "location": "도쿄",
+      "team": "",
+      "start": "2012-04",
+      "end": "2015-03",
+      "current": false,
+      "role": "Rigging · CFX",
+      "position": "사원",
+      "projects": [
+        "영화 VFX, 시네마틱 제작"
+      ],
+      "layout": "poster",
+      "images": [
+        {
+          "id": "digital-frontier-image-1",
+          "src": "assets/profile/digital-frontier-damnation.png",
+          "title": "BIOHAZARD: DAMNATION",
+          "alt": "BIOHAZARD: DAMNATION 포스터",
+          "width": 643,
+          "height": 847
+        },
+        {
+          "id": "digital-frontier-image-2",
+          "src": "assets/profile/digital-frontier-jellyfish-eyes.png",
+          "title": "Jellyfish Eyes",
+          "alt": "Jellyfish Eyes 포스터",
+          "width": 707,
+          "height": 1000
+        },
+        {
+          "id": "digital-frontier-image-3",
+          "src": "assets/profile/digital-frontier-gantz-o.png",
+          "title": "GANTZ:O",
+          "alt": "GANTZ:O 포스터",
+          "width": 566,
+          "height": 800
+        },
+        {
+          "id": "digital-frontier-image-4",
+          "src": "assets/profile/digital-frontier-guilty-crown.png",
+          "title": "GUILTY CROWN",
+          "alt": "GUILTY CROWN 이미지",
+          "width": 809,
+          "height": 1000
+        },
+        {
+          "id": "digital-frontier-image-5",
+          "src": "assets/profile/digital-frontier-ao-oni.png",
+          "title": "Ao Oni",
+          "alt": "Ao Oni 포스터",
+          "width": 369,
+          "height": 522
+        },
+        {
+          "id": "digital-frontier-image-6",
+          "src": "assets/profile/digital-frontier-smash-bros.png",
+          "title": "Super Smash Bros. for Nintendo 3DS / Wii U",
+          "alt": "Super Smash Bros. for Nintendo 3DS / Wii U 이미지",
+          "width": 384,
+          "height": 518
+        },
+        {
+          "id": "digital-frontier-image-7",
+          "src": "assets/profile/digital-frontier-ultraman.png",
+          "title": "울트라맨",
+          "alt": "울트라맨 이미지",
+          "width": 361,
+          "height": 517
+        },
+        {
+          "id": "digital-frontier-image-8",
+          "src": "assets/profile/digital-frontier-souten.png",
+          "title": "창천의 권",
+          "alt": "창천의 권 이미지",
+          "width": 211,
+          "height": 303
+        }
+      ]
+    }
+  ],
+  "revision": 3
+}

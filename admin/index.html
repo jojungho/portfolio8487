@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>영상 관리 — JO JUNG HO</title>
+    <link rel="stylesheet" href="admin.css" />
+    <script type="module" src="admin.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="../index.html">JO JUNG HO<span>PORTFOLIO MANAGER</span></a>
+      <div class="header-right"><span class="local-badge">이 컴퓨터에서 관리</span><a class="text-link" href="profile.html">프로필 편집</a><a class="text-link" href="../projects/creature-rigging.html#works" target="_blank" rel="noopener">포트폴리오 보기 ↗</a></div>
+    </header>
+    <main class="workspace">
+      <section class="page-heading">
+        <div><p class="eyebrow">YOUR SELECTED WORK</p><h1>영상 관리<span id="count">0</span></h1><p class="intro">유튜브 링크로 작품을 추가하고, 소개를 자유롭게 수정하세요.</p></div>
+        <div class="heading-actions"><button class="button button-secondary" id="change-order" type="button" disabled>순서 변경</button><button class="button button-primary" id="add-video" disabled><span aria-hidden="true">＋</span> 영상 추가</button></div>
+      </section>
+      <div class="toolbar">
+        <div class="tabs" aria-label="목록 선택"><button type="button" class="tab is-active" id="show-active" aria-pressed="true">작품 목록</button><button type="button" class="tab" id="show-trash" aria-pressed="false">휴지통 <span id="trash-count">0</span></button></div>
+        <div class="filters"><label class="sr-only" for="search">제목 검색</label><input id="search" type="search" placeholder="제목 검색" /><label class="sr-only" for="filter-category">카테고리 필터</label><select id="filter-category"><option value="">모든 카테고리</option></select></div>
+      </div>
+      <div class="order-toolbar" id="order-toolbar" hidden>
+        <div><strong id="order-title">영상 순서 변경</strong><p id="order-help">손잡이를 드래그하거나 앞·뒤 이동 버튼을 누른 뒤 저장하세요.</p></div>
+        <div class="order-toolbar__actions"><button class="button button-secondary" id="cancel-order" type="button">취소</button><button class="button button-primary" id="save-order" type="button" disabled>순서 저장</button></div>
+      </div>
+      <p class="status" id="status" role="status">영상 목록을 불러오는 중입니다.</p>
+      <section class="video-grid" id="video-list" aria-label="등록된 영상"></section>
+      <div class="empty" id="empty" hidden><span aria-hidden="true">＋</span><h2 id="empty-title">첫 작품을 추가해보세요.</h2><p id="empty-copy">유튜브 링크 하나로 영상과 썸네일을 연결할 수 있습니다.</p></div>
+      <footer class="workspace-footer"><span>저장한 내용은 이 컴퓨터의 포트폴리오에 반영됩니다.</span><span>JO JUNG HO / WORK ARCHIVE</span></footer>
+    </main>
+    <dialog id="editor" aria-labelledby="editor-title">
+      <form id="video-form">
+        <div class="dialog-heading"><div><p class="eyebrow">YOUTUBE PROJECT</p><h2 id="editor-title">영상 추가</h2></div><button class="close-button" id="close-editor" type="button" aria-label="닫기">×</button></div>
+        <div class="editor-layout">
+          <aside class="preview-column"><div class="thumbnail-preview" id="thumbnail-preview"><span>링크를 입력하면<br />썸네일이 표시됩니다.</span></div><span class="preview-label">16:9 THUMBNAIL PREVIEW</span><h3 id="preview-title">새로운 작품</h3><p>목록에서 마우스를 올리면 음소거로 재생됩니다.<br />클릭하면 영상과 설명이 있는 상세 화면으로 이동합니다.</p><div class="youtube-note">유튜브에서 <strong>일부 공개</strong>와 <strong>삽입 허용</strong>을 설정해주세요.</div></aside>
+          <div class="fields">
+            <label for="video-url">유튜브 링크 <span class="required">*</span></label><div class="url-row"><input id="video-url" name="url" type="url" placeholder="https://www.youtube.com/watch?v=…" required /><button type="button" class="button button-secondary" id="fetch-title">정보 가져오기</button></div><p class="field-note" id="metadata-note">링크를 넣으면 영상 제목을 자동으로 가져옵니다. 제목은 직접 바꿀 수 있습니다.</p>
+            <div class="field-pair"><div><label for="video-title">작품 제목 <span class="required">*</span></label><input id="video-title" name="title" maxlength="120" placeholder="예: BT21" required /></div><div><label for="video-category">카테고리</label><select id="video-category" name="category"></select></div></div>
+            <label for="video-work-type">WORKS 분류</label>
+            <div class="work-type-row"><select id="video-work-type" name="workType"></select><button class="button button-secondary" id="add-work-type" type="button" aria-expanded="false" aria-controls="work-type-create">＋ 분류 추가</button></div>
+            <p class="field-note">CINEMATIC&amp;VFX의 WORKS 필터에 사용됩니다.</p>
+            <div class="work-type-create" id="work-type-create" hidden>
+              <label for="new-work-type">새 분류 이름</label>
+              <div class="work-type-row"><input id="new-work-type" type="text" maxlength="40" placeholder="예: CFX, Simulation" autocomplete="off" /><button class="button button-primary" id="save-work-type" type="button">추가</button><button class="button button-secondary" id="cancel-work-type" type="button">취소</button></div>
+              <p class="field-note">분류는 추가 즉시 저장됩니다. 영상에 적용하려면 아래의 변경 저장을 눌러주세요.</p>
+            </div>
+            <p class="work-type-message" id="work-type-message" role="status" hidden></p>
+            <fieldset class="hero-slot-field" aria-describedby="hero-slot-help">
+              <legend>1단 영상 연결</legend>
+              <div class="hero-slot-options">
+                <label class="hero-slot-option"><input type="checkbox" name="heroSlots" value="1" /><span><strong>1</strong> VIDEO 01</span></label>
+                <label class="hero-slot-option"><input type="checkbox" name="heroSlots" value="2" /><span><strong>2</strong> VIDEO 02</span></label>
+              </div>
+              <p class="field-note" id="hero-slot-help">체크 후 저장하면 첫 화면의 해당 영상으로 연결됩니다. 둘 다 선택할 수 있으며, 기존 연결 영상은 교체됩니다. 체크를 해제하면 해당 번호는 테스트 영상으로 돌아갑니다.</p>
+              <p class="field-note" id="hero-slot-current"></p>
+            </fieldset>
+            <label for="video-description">작품 설명</label><textarea id="video-description" name="description" rows="5" maxlength="4000" placeholder="프로젝트 소개나 영상에 대한 설명을 입력해주세요."></textarea>
+            <label for="video-role">담당 작업 <span class="optional">선택</span></label><input id="video-role" name="role" maxlength="200" placeholder="예: Character Rigging / Creature TD" />
+            <label for="video-channel">채널 <span class="optional">선택</span></label><input id="video-channel" name="channel" maxlength="200" placeholder="유튜브 채널명" />
+          </div>
+        </div>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <div class="dialog-footer"><span>저장하면 작품 목록과 상세 화면에 반영됩니다.</span><div><button class="button button-secondary" id="cancel-editor" type="button">취소</button><button class="button button-primary" id="save-video" type="submit">영상 저장</button></div></div>
+      </form>
+    </dialog>
+  </body>
+</html>
