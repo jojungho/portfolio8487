@@ -92,6 +92,7 @@ body.project-page { background: #151515; }
 .work-study__button { display: block; width: 100%; padding: 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
 .work-study__image { position: relative; display: block; overflow: hidden; aspect-ratio: 3 / 4; background: #222; }
 .work-study__image img { width: 100%; height: 100%; object-fit: cover; object-position: var(--crop, 50% 50%); transform: scale(var(--zoom, 1)); transition: transform 600ms cubic-bezier(.2,.7,.2,1), filter 600ms ease; }
+.work-study__image > video { display: block; width: 100%; height: 100%; object-fit: cover; background: #111; }
 .work-study__button:hover img, .work-study__button:focus-visible img { transform: scale(calc(var(--zoom, 1) * 1.045)); filter: brightness(1.08); }
 .work-study__image::after { position: absolute; right: 16px; bottom: 16px; display: grid; place-items: center; width: 30px; height: 30px; content: '↗'; border: 1px solid rgba(255,255,255,.6); border-radius: 50%; color: #fff; background: rgba(0,0,0,.16); opacity: 0; transition: opacity 200ms ease; }
 .work-study__button:hover .work-study__image::after, .work-study__button:focus-visible .work-study__image::after { opacity: 1; }

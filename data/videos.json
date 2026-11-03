@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": 12,
+  "revision": 14,
   "videos": [
     {
       "title": "ShowReels",
@@ -34,20 +34,20 @@
     },
     {
       "id": "bt21",
-      "type": "youtube",
-      "youtubeId": "k6hnPMril98",
+      "type": "mp4",
       "title": "ShowReel 2026",
       "category": "game-cinematic",
       "description": "Game Cinematic",
       "role": "",
       "channel": "",
       "createdAt": "2026-10-29T00:00:00.000Z",
-      "updatedAt": "2026-11-03T05:54:55.144Z",
+      "updatedAt": "2026-11-03T14:01:54.899Z",
       "deletedAt": null,
       "workType": "showreel",
       "heroSlots": [
         1
-      ]
+      ],
+      "videoPath": "assets/videos/hero-reel.mp4"
     },
     {
       "title": "Rigging 2026",
@@ -56,15 +56,15 @@
       "description": "test",
       "role": "",
       "channel": "",
-      "type": "youtube",
+      "type": "mp4",
       "heroSlots": [
         2
       ],
-      "youtubeId": "4Xw3Y9jYiNk",
       "id": "c897a0d3-cee6-4f4c-acc7-a3a33c30ce25",
       "createdAt": "2026-11-02T08:21:16.215Z",
-      "updatedAt": "2026-11-03T05:55:11.524Z",
-      "deletedAt": null
+      "updatedAt": "2026-11-03T14:02:15.668Z",
+      "deletedAt": null,
+      "videoPath": "assets/videos/hero-reel-02.mp4"
     }
   ]
 }

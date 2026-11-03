@@ -1,6 +1,7 @@
 import { categories, getWorkTypes, normalizeWorkTypeTitle, youtubeId, detailUrl } from '../content-model.mjs';
 
 const $ = selector => document.querySelector(selector);
+const adminAsset = path => new URL(`../${path}`, location.href).href;
 const editor = $('#editor');
 const form = $('#video-form');
 const status = $('#status');
@@ -14,7 +15,7 @@ let metadataTimer;
 let autoTitle = '';
 let orderState = null;
 let draggingId = null;
-const fields = { url: $('#video-url'), title: $('#video-title'), category: $('#video-category'), workType: $('#video-work-type'), description: $('#video-description'), role: $('#video-role'), channel: $('#video-channel') };
+const fields = { type: $('#video-type'), url: $('#video-url'), posterPath: $('#video-poster'), title: $('#video-title'), category: $('#video-category'), workType: $('#video-work-type'), description: $('#video-description'), role: $('#video-role'), channel: $('#video-channel') };
 const heroSlotInputs = [...form.querySelectorAll('input[name="heroSlots"]')];
 const node = (tag, className, text) => {
   const result = document.createElement(tag);
@@ -226,12 +227,20 @@ function render() {
     const card = node('article', 'video-card');
     card.dataset.videoId = video.id;
     const image = node('div', 'video-card__image');
-    const img = node('img');
-    img.src = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
-    img.alt = video.title;
-    img.loading = 'lazy';
-    img.draggable = false;
-    image.append(img, node('span', 'video-card__badge', 'YOUTUBE'));
+    if (video.type === 'mp4') {
+      const preview = node('video');
+      preview.src = adminAsset(video.videoPath);
+      if (video.posterPath) preview.poster = adminAsset(video.posterPath);
+      preview.muted = true; preview.playsInline = true; preview.preload = 'metadata';
+      image.append(preview, node('span', 'video-card__badge', 'LOCAL MP4'));
+    } else {
+      const img = node('img');
+      img.src = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
+      img.alt = video.title;
+      img.loading = 'lazy';
+      img.draggable = false;
+      image.append(img, node('span', 'video-card__badge', 'YOUTUBE'));
+    }
     const body = node('div', 'video-card__body');
     const category = categories.find(item => item.id === video.category);
     body.append(node('p', 'video-card__category', category?.adminTitle || category?.title || ''), node('h2', '', video.title), node('p', 'video-card__description', video.description || '작품 설명을 추가할 수 있습니다.'));
@@ -257,21 +266,47 @@ function render() {
   });
   $('#empty').hidden = visible.length > 0;
   $('#empty-title').textContent = query || category ? '조건에 맞는 영상이 없습니다.' : trash ? '휴지통이 비어 있습니다.' : '첫 작품을 추가해보세요.';
-  $('#empty-copy').textContent = trash ? '삭제한 영상은 이곳에서 복원할 수 있습니다.' : '유튜브 링크 하나로 영상과 썸네일을 연결할 수 있습니다.';
+  $('#empty-copy').textContent = trash ? '삭제한 영상은 이곳에서 복원할 수 있습니다.' : 'YouTube 링크나 assets/videos 폴더의 MP4를 등록할 수 있습니다.';
   updateControls();
 }
 function updatePreview() {
-  const id = youtubeId(fields.url.value);
+  const local = fields.type.value === 'mp4';
+  const id = local ? '' : youtubeId(fields.url.value);
   const preview = $('#thumbnail-preview');
-  if (id) {
+  if (local && /^assets\/videos\/[A-Za-z0-9._-]+\.mp4$/i.test(fields.url.value.trim())) {
+    const path = fields.url.value.trim();
+    const posterPath = fields.posterPath.value.trim();
+    if (preview.dataset.videoPath !== path || preview.dataset.posterPath !== posterPath) {
+      const video = node('video');
+      video.src = adminAsset(path);
+      if (posterPath) video.poster = adminAsset(posterPath);
+      video.muted = true; video.playsInline = true; video.controls = true; video.preload = 'metadata';
+      preview.replaceChildren(video);
+      preview.dataset.videoPath = path;
+      preview.dataset.posterPath = posterPath;
+      delete preview.dataset.videoId;
+    }
+  } else if (id) {
     if (preview.dataset.videoId !== id) {
       const image = node('img');
       image.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
       image.alt = '유튜브 영상 썸네일';
       preview.replaceChildren(image); preview.dataset.videoId = id;
+      delete preview.dataset.videoPath; delete preview.dataset.posterPath;
     }
-  } else { preview.replaceChildren(node('span', '', '링크를 입력하면 썸네일이 표시됩니다.')); delete preview.dataset.videoId; }
+  } else { preview.replaceChildren(node('span', '', local ? 'assets/videos/파일명.mp4 경로를 입력하세요.' : 'YouTube 링크를 입력하면 썸네일이 표시됩니다.')); delete preview.dataset.videoId; delete preview.dataset.videoPath; delete preview.dataset.posterPath; }
   $('#preview-title').textContent = fields.title.value || '새로운 작품';
+}
+function updateSourceFields() {
+  const local = fields.type.value === 'mp4';
+  fields.url.type = local ? 'text' : 'url';
+  fields.url.placeholder = local ? 'assets/videos/hero-reel.mp4' : 'https://www.youtube.com/watch?v=…';
+  $('#video-url-label').innerHTML = `${local ? 'MP4 파일 경로' : '유튜브 링크'} <span class="required">*</span>`;
+  $('#fetch-title').hidden = local;
+  $('#mp4-options').hidden = !local;
+  $('#youtube-note').hidden = local;
+  $('#metadata-note').textContent = local ? '프로젝트 폴더의 assets/videos 안에 MP4 파일을 먼저 넣고, 경로를 입력하세요.' : '링크를 넣으면 영상 제목을 자동으로 가져옵니다. 제목은 직접 바꿀 수 있습니다.';
+  updatePreview();
 }
 async function fetchMetadata() {
   const id = youtubeId(fields.url.value);
@@ -296,6 +331,9 @@ function openEditor(video) {
   editingId = video?.id || null;
   autoTitle = '';
   form.reset();
+  fields.type.value = video?.type || 'youtube';
+  fields.posterPath.value = video?.posterPath || '';
+  updateSourceFields();
   refreshWorkTypes(video?.workType || 'showreel');
   toggleWorkTypeCreate(false);
   fields.category.value = video?.category || $('#filter-category').value || 'game-cinematic';
@@ -306,11 +344,10 @@ function openEditor(video) {
     return `${slot}번 현재: ${current?.title || '테스트 영상'}`;
   }).join(' / ');
   for (const name of ['title', 'description', 'role', 'channel']) fields[name].value = video?.[name] || '';
-  fields.url.value = video ? `https://www.youtube.com/watch?v=${video.youtubeId}` : '';
+  fields.url.value = video ? (video.type === 'mp4' ? video.videoPath : `https://www.youtube.com/watch?v=${video.youtubeId}`) : '';
   $('#editor-title').textContent = video ? '영상 수정' : '영상 추가';
   $('#save-video').textContent = video ? '변경 저장' : '영상 저장';
   $('#form-error').textContent = '';
-  $('#metadata-note').textContent = '링크를 넣으면 영상 제목을 자동으로 가져옵니다. 제목은 직접 바꿀 수 있습니다.';
   updatePreview();
   editor.showModal(); fields.url.focus();
 }
@@ -333,9 +370,12 @@ form.addEventListener('submit', async event => {
   event.preventDefault();
   if (busy || !form.reportValidity()) return;
   if (!$('#work-type-create').hidden) { workTypeMessage('분류 추가를 완료하거나 취소한 뒤 영상을 저장해주세요.', true); $('#new-work-type').focus(); return; }
-  if (!youtubeId(fields.url.value)) { $('#form-error').textContent = '올바른 유튜브 영상 주소를 입력해주세요.'; return; }
+  const isMp4 = fields.type.value === 'mp4';
+  if (isMp4 ? !/^assets\/videos\/[A-Za-z0-9._-]+\.mp4$/i.test(fields.url.value.trim()) : !youtubeId(fields.url.value)) {
+    $('#form-error').textContent = isMp4 ? 'assets/videos/파일명.mp4 형식의 경로를 입력해주세요.' : '올바른 유튜브 영상 주소를 입력해주세요.'; return;
+  }
   metadataRequest++; clearTimeout(metadataTimer);
-  const video = { type: 'youtube' };
+  const video = { type: fields.type.value };
   Object.entries(fields).forEach(([name, element]) => { video[name] = element.value.trim(); });
   video.heroSlots = heroSlotInputs.filter(input => input.checked).map(input => Number(input.value));
   setBusy(true); $('#form-error').textContent = ''; $('#save-video').textContent = '저장 중…';
@@ -363,7 +403,9 @@ window.addEventListener('beforeunload', event => {
 ['#close-editor', '#cancel-editor'].forEach(selector => $(selector).addEventListener('click', () => { if (!busy) editor.close(); }));
 editor.addEventListener('cancel', event => { if (busy) event.preventDefault(); });
 editor.addEventListener('close', () => { metadataRequest++; clearTimeout(metadataTimer); });
-fields.url.addEventListener('input', () => { metadataRequest++; updatePreview(); clearTimeout(metadataTimer); if (youtubeId(fields.url.value)) metadataTimer = setTimeout(fetchMetadata, 650); });
+fields.type.addEventListener('change', () => { metadataRequest++; clearTimeout(metadataTimer); updateSourceFields(); fields.url.focus(); });
+fields.url.addEventListener('input', () => { metadataRequest++; updatePreview(); clearTimeout(metadataTimer); if (fields.type.value === 'youtube' && youtubeId(fields.url.value)) metadataTimer = setTimeout(fetchMetadata, 650); });
+fields.posterPath.addEventListener('input', updatePreview);
 fields.title.addEventListener('input', updatePreview);
 $('#fetch-title').addEventListener('click', fetchMetadata);
 $('#search').addEventListener('input', render);

@@ -83,11 +83,24 @@ export function normalizeVideo(input, availableWorkTypes = workTypes) {
   if (input.type === 'youtube') {
     record.youtubeId = youtubeId(input.url || input.youtubeId);
     if (!record.youtubeId) throw new Error('올바른 YouTube 영상 주소를 입력해주세요.');
-  } else throw new Error('유튜브 영상 링크를 입력해주세요.');
+  } else if (input.type === 'mp4') {
+    const videoPath = field('url', 240) || field('videoPath', 240, true);
+    if (!/^assets\/videos\/[A-Za-z0-9._-]+\.mp4$/i.test(videoPath)) {
+      throw new Error('MP4 경로는 assets/videos/파일명.mp4 형식으로 입력해주세요.');
+    }
+    record.videoPath = videoPath;
+    const posterPath = field('posterPath', 240);
+    if (posterPath && !/^assets\/[A-Za-z0-9._/-]+\.(?:png|jpe?g|webp)$/i.test(posterPath)) {
+      throw new Error('표지 이미지 경로는 assets/ 안의 PNG, JPG, 또는 WebP 파일이어야 합니다.');
+    }
+    if (posterPath.split('/').includes('..')) throw new Error('표지 이미지 경로를 확인해주세요.');
+    if (posterPath) record.posterPath = posterPath;
+  } else throw new Error('영상 종류를 선택해주세요.');
   return record;
 }
 export function thumbnail(video) {
-  return `https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg`;
+  if (video.posterPath) return video.posterPath;
+  return video.type === 'youtube' ? `https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg` : '';
 }
 export function detailUrl(video) {
   return video.id === 'bt21' ? 'bt21.html' : `work.html?id=${encodeURIComponent(video.id)}`;

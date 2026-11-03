@@ -15,7 +15,7 @@
     </header>
     <main class="workspace">
       <section class="page-heading">
-        <div><p class="eyebrow">YOUR SELECTED WORK</p><h1>영상 관리<span id="count">0</span></h1><p class="intro">유튜브 링크로 작품을 추가하고, 소개를 자유롭게 수정하세요.</p></div>
+        <div><p class="eyebrow">YOUR SELECTED WORK</p><h1>영상 관리<span id="count">0</span></h1><p class="intro">YouTube 링크 또는 assets/videos 폴더의 MP4로 작품을 추가하고 수정하세요.</p></div>
         <div class="heading-actions"><button class="button button-secondary" id="change-order" type="button" disabled>순서 변경</button><button class="button button-primary" id="add-video" disabled><span aria-hidden="true">＋</span> 영상 추가</button></div>
       </section>
       <div class="toolbar">
@@ -28,16 +28,18 @@
       </div>
       <p class="status" id="status" role="status">영상 목록을 불러오는 중입니다.</p>
       <section class="video-grid" id="video-list" aria-label="등록된 영상"></section>
-      <div class="empty" id="empty" hidden><span aria-hidden="true">＋</span><h2 id="empty-title">첫 작품을 추가해보세요.</h2><p id="empty-copy">유튜브 링크 하나로 영상과 썸네일을 연결할 수 있습니다.</p></div>
+      <div class="empty" id="empty" hidden><span aria-hidden="true">＋</span><h2 id="empty-title">첫 작품을 추가해보세요.</h2><p id="empty-copy">YouTube 링크나 assets/videos 폴더의 MP4를 등록할 수 있습니다.</p></div>
       <footer class="workspace-footer"><span>저장한 내용은 이 컴퓨터의 포트폴리오에 반영됩니다.</span><span>JO JUNG HO / WORK ARCHIVE</span></footer>
     </main>
     <dialog id="editor" aria-labelledby="editor-title">
       <form id="video-form">
-        <div class="dialog-heading"><div><p class="eyebrow">YOUTUBE PROJECT</p><h2 id="editor-title">영상 추가</h2></div><button class="close-button" id="close-editor" type="button" aria-label="닫기">×</button></div>
+        <div class="dialog-heading"><div><p class="eyebrow">VIDEO PROJECT</p><h2 id="editor-title">영상 추가</h2></div><button class="close-button" id="close-editor" type="button" aria-label="닫기">×</button></div>
         <div class="editor-layout">
-          <aside class="preview-column"><div class="thumbnail-preview" id="thumbnail-preview"><span>링크를 입력하면<br />썸네일이 표시됩니다.</span></div><span class="preview-label">16:9 THUMBNAIL PREVIEW</span><h3 id="preview-title">새로운 작품</h3><p>목록에서 마우스를 올리면 음소거로 재생됩니다.<br />클릭하면 영상과 설명이 있는 상세 화면으로 이동합니다.</p><div class="youtube-note">유튜브에서 <strong>일부 공개</strong>와 <strong>삽입 허용</strong>을 설정해주세요.</div></aside>
+          <aside class="preview-column"><div class="thumbnail-preview" id="thumbnail-preview"><span>영상 주소를 입력하면<br />미리보기가 표시됩니다.</span></div><span class="preview-label">16:9 THUMBNAIL PREVIEW</span><h3 id="preview-title">새로운 작품</h3><p>목록의 MP4 영상은 마우스를 올리면 재생됩니다.<br />카드를 누르면 영상과 설명이 있는 상세 화면으로 이동합니다.</p><div class="youtube-note" id="youtube-note">유튜브 영상은 <strong>일부 공개</strong>와 <strong>삽입 허용</strong>을 설정해주세요.</div></aside>
           <div class="fields">
-            <label for="video-url">유튜브 링크 <span class="required">*</span></label><div class="url-row"><input id="video-url" name="url" type="url" placeholder="https://www.youtube.com/watch?v=…" required /><button type="button" class="button button-secondary" id="fetch-title">정보 가져오기</button></div><p class="field-note" id="metadata-note">링크를 넣으면 영상 제목을 자동으로 가져옵니다. 제목은 직접 바꿀 수 있습니다.</p>
+            <label for="video-type">영상 종류</label><select id="video-type" name="type"><option value="youtube">YouTube 링크</option><option value="mp4">내 MP4 파일</option></select>
+            <label for="video-url" id="video-url-label">유튜브 링크 <span class="required">*</span></label><div class="url-row"><input id="video-url" name="url" type="url" placeholder="https://www.youtube.com/watch?v=…" required /><button type="button" class="button button-secondary" id="fetch-title">정보 가져오기</button></div><p class="field-note" id="metadata-note">링크를 넣으면 영상 제목을 자동으로 가져옵니다. 제목은 직접 바꿀 수 있습니다.</p>
+            <div id="mp4-options" hidden><label for="video-poster">표지 이미지 경로 <span class="optional">선택</span></label><input id="video-poster" name="posterPath" type="text" placeholder="assets/projects/thumbnail.jpg" /><p class="field-note">카드의 대표 이미지 경로입니다. 비워두면 MP4 영상 프레임을 사용합니다.</p></div>
             <div class="field-pair"><div><label for="video-title">작품 제목 <span class="required">*</span></label><input id="video-title" name="title" maxlength="120" placeholder="예: BT21" required /></div><div><label for="video-category">카테고리</label><select id="video-category" name="category"></select></div></div>
             <label for="video-work-type">WORKS 분류</label>
             <div class="work-type-row"><select id="video-work-type" name="workType"></select><button class="button button-secondary" id="add-work-type" type="button" aria-expanded="false" aria-controls="work-type-create">＋ 분류 추가</button></div>

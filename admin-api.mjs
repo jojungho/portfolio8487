@@ -1,5 +1,5 @@
 import { randomBytes, randomUUID } from 'node:crypto';
-import { readFile, writeFile, rename, mkdir, unlink } from 'node:fs/promises';
+import { access, readFile, writeFile, rename, mkdir, unlink } from 'node:fs/promises';
 import { join } from 'node:path';
 import { categories, normalizeVideo, youtubeId, assignHeroSlots, getWorkTypes, normalizeWorkTypeTitle } from './content-model.mjs';
 import { createProfileAdmin } from './profile-admin.mjs';
@@ -10,6 +10,19 @@ export function createAdminAPI(root) {
   const dataFile = join(root, 'data', 'videos.json');
   let queue = Promise.resolve();
   const read = async () => JSON.parse(await readFile(dataFile, 'utf8'));
+  async function validateMedia(input) {
+    if (input.video?.type !== 'mp4') return;
+    const videoPath = String(input.video.url || '').trim();
+    const posterPath = String(input.video.posterPath || '').trim();
+    if (!/^assets\/videos\/[A-Za-z0-9._-]+\.mp4$/i.test(videoPath) ||
+        (posterPath && (!/^assets\/[A-Za-z0-9._/-]+\.(?:png|jpe?g|webp)$/i.test(posterPath) || posterPath.split('/').includes('..')))) {
+      throw error(400, 'MP4 파일 경로를 확인해주세요.');
+    }
+    for (const asset of [videoPath, posterPath].filter(Boolean)) {
+      try { await access(join(root, asset)); }
+      catch { throw error(400, `파일을 찾을 수 없습니다: ${asset}`); }
+    }
+  }
   const reply = (response, status, value) => {
     response.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
     response.end(JSON.stringify(value));
@@ -92,6 +105,7 @@ export function createAdminAPI(root) {
         reply(response, 200, store);
       } else if (url.pathname === '/api/admin/videos' && request.method === 'POST') {
         const input = await body(request);
+        await validateMedia(input);
         const now = new Date().toISOString();
         const store = await commit(input, store => {
           const video = normalizeVideo(input.video, getWorkTypes(store));
@@ -105,6 +119,7 @@ export function createAdminAPI(root) {
         if (!match || !['PATCH', 'DELETE', 'POST'].includes(request.method)) throw error(404, '요청한 기능을 찾을 수 없습니다.');
         if ((request.method === 'POST') !== Boolean(match[2])) throw error(405, '허용하지 않는 요청입니다.');
         const input = await body(request);
+        if (request.method === 'PATCH') await validateMedia(input);
         const store = await commit(input, store => {
           const record = request.method === 'PATCH' ? normalizeVideo(input.video, getWorkTypes(store)) : null;
           const video = store.videos.find(item => item.id === match[1]);
@@ -113,6 +128,8 @@ export function createAdminAPI(root) {
           if (record) {
             if (video.deletedAt) throw error(400, '영상을 복원한 뒤 수정해주세요.');
             Object.assign(video, record);
+            if (record.type === 'youtube') { delete video.videoPath; delete video.posterPath; }
+            else delete video.youtubeId;
             assignHeroSlots(store.videos, video, record.heroSlots, now);
           } else {
             video.deletedAt = match[2] ? null : now;

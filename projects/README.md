@@ -23,7 +23,7 @@ BT21 카드는 `../work-preview.js`에서 YouTube IFrame API로 미리 재생 �
 
 ## BT21 영상 상세 화면
 
-등록한 영상은 `../data/videos.json`에서 읽습니다. `../admin/`에서 유튜브 링크를 추가·수정하면 각 카테고리 WORKS와 상세 페이지에 반영됩니다. 공통 영상 상세 템플릿은 `work.html?id=영상ID`, 기존 BT21 주소는 `bt21.html`을 유지합니다. `../portfolio-content.js`가 두 화면에 저장 데이터를 연결합니다.
+등록한 영상은 `../data/videos.json`에서 읽습니다. `../admin/`에서 YouTube 링크 또는 `assets/videos/`의 MP4를 추가·수정하면 각 카테고리 WORKS와 상세 페이지에 반영됩니다. 공통 영상 상세 템플릿은 `work.html?id=영상ID`, 기존 BT21 주소는 `bt21.html`을 유지합니다. `../portfolio-content.js`가 두 화면에 저장 데이터를 연결합니다.
 
 CINEMATIC&VFX의 첫 작품은 `BT21`이며, 클릭하면 `bt21.html`로 이동합니다. 제목 → YouTube 영상 → 설명 및 정보 순서로 구성되어 있습니다. `../work-detail.css`에서 상세 화면 스타일을 조정합니다.
 

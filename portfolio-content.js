@@ -6,7 +6,18 @@ const make = (tag, className, text) => {
   if (text !== undefined) element.textContent = text;
   return element;
 };
+function publicAsset(path) {
+  return new URL(location.pathname.includes('/projects/') ? `../${path}` : path, location.href).href;
+}
 function poster(video) {
+  if (video.type === 'mp4') {
+    const media = make('video', 'work-study__poster-video');
+    media.src = publicAsset(video.videoPath);
+    if (video.posterPath) media.poster = publicAsset(video.posterPath);
+    media.muted = true; media.playsInline = true; media.loop = true; media.preload = 'metadata';
+    media.dataset.localPreview = '';
+    return media;
+  }
   const url = thumbnail(video);
   const image = make('img');
   image.src = url;
@@ -27,15 +38,18 @@ function card(video) {
   link.setAttribute('aria-label', `${video.title} — view project`);
   link.dataset.previewTitle = video.title;
   link.dataset.previewState = 'idle';
+  link.dataset.previewType = video.type;
   const frame = make('span', 'work-study__image');
   frame.append(poster(video));
   const preview = make('span', 'work-study__preview');
   preview.setAttribute('aria-hidden', 'true');
-  link.dataset.previewVideo = video.youtubeId;
-  const mount = make('span');
-  mount.dataset.previewMount = '';
-  preview.append(mount);
-  frame.append(preview);
+  link.dataset.previewVideo = video.type === 'youtube' ? video.youtubeId : video.videoPath;
+  if (video.type === 'youtube') {
+    const mount = make('span');
+    mount.dataset.previewMount = '';
+    preview.append(mount);
+    frame.append(preview);
+  }
   link.append(frame, make('span', 'work-study__title', video.title));
   article.append(link);
   return article;
@@ -62,6 +76,14 @@ function showDetail(container, video) {
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
     iframe.allowFullscreen = true;
     media.append(iframe);
+  } else if (video.type === 'mp4') {
+    const player = make('video');
+    player.src = publicAsset(video.videoPath);
+    player.controls = true;
+    player.playsInline = true;
+    player.preload = 'metadata';
+    if (video.posterPath) player.poster = publicAsset(video.posterPath);
+    media.append(player);
   }
   container.append(heading, media);
   if (video.type === 'youtube') {

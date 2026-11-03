@@ -202,16 +202,22 @@ try {
   reels.forEach(reel => {
     const video = videos.find(item => item.heroSlots.includes(reel.index + 1));
     if (!video) return;
-    reel.youtubeId = video.youtubeId;
     reel.title = video.title;
-    reel.poster = thumbnail(video);
-    reel.surface = document.createElement('div');
-    reel.surface.className = 'hero__youtube';
-    reel.surface.id = `hero-youtube-${reel.index + 1}`;
-    reel.surface.setAttribute('aria-hidden', 'true');
-    reel.surface.dataset.videoId = video.youtubeId;
-    reel.video.after(reel.surface);
-    buttons[reel.index].setAttribute('aria-controls', reel.surface.id);
+    if (video.type === 'youtube') {
+      reel.youtubeId = video.youtubeId;
+      reel.poster = thumbnail(video);
+      reel.surface = document.createElement('div');
+      reel.surface.className = 'hero__youtube';
+      reel.surface.id = `hero-youtube-${reel.index + 1}`;
+      reel.surface.setAttribute('aria-hidden', 'true');
+      reel.surface.dataset.videoId = video.youtubeId;
+      reel.video.after(reel.surface);
+      buttons[reel.index].setAttribute('aria-controls', reel.surface.id);
+    } else if (video.type === 'mp4') {
+      reel.video.dataset.src = video.videoPath;
+      reel.video.poster = video.posterPath || reel.video.poster;
+      reel.poster = video.posterPath || reel.poster;
+    }
   });
 } catch { /* Keep the two local test reels when no saved assignment can be loaded. */ }
 loaded = true;

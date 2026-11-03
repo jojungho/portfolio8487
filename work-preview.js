@@ -29,6 +29,55 @@
   }
 
   const previews = cards.map((card) => {
+    if (card.dataset.previewType === 'mp4') {
+      const video = card.querySelector('[data-local-preview]');
+      let wanted = false;
+      let visible = false;
+      let disposed = false;
+      const eligible = () => !disposed && visible && !document.hidden && hoverInput.matches &&
+        !reducedMotion.matches && card.getBoundingClientRect().height >= 200;
+      function stop() {
+        if (disposed) return;
+        wanted = false;
+        video.pause();
+        if (video.readyState > 0) video.currentTime = 0;
+        card.dataset.previewState = 'idle';
+        if (activePreview === preview) activePreview = undefined;
+      }
+      function start() {
+        if (!eligible()) return;
+        if (activePreview && activePreview !== preview) activePreview.stop();
+        activePreview = preview;
+        wanted = true;
+        card.dataset.previewState = 'loading';
+        if (video.readyState > 0) video.currentTime = 0;
+        video.play().then(() => {
+          if (wanted && eligible()) card.dataset.previewState = 'playing';
+          else stop();
+        }).catch(() => {
+          const failed = wanted;
+          stop();
+          if (failed) card.dataset.previewState = 'unavailable';
+        });
+      }
+      card.addEventListener('pointerenter', (event) => {
+        if (event.pointerType !== 'touch') { document.dispatchEvent(new Event('portfolio-preview-starting')); start(); }
+      });
+      card.addEventListener('focus', () => {
+        if (card.matches(':focus-visible')) { document.dispatchEvent(new Event('portfolio-preview-starting')); start(); }
+      });
+      ['pointerleave', 'pointercancel', 'blur', 'click'].forEach((type) => card.addEventListener(type, stop));
+      const observer = new IntersectionObserver((entries) => {
+        visible = entries[0].intersectionRatio >= 0.5;
+        if (!visible) stop();
+      }, { threshold: [0, 0.5] });
+      observer.observe(card);
+      const preview = {
+        stop,
+        dispose() { stop(); disposed = true; observer.disconnect(); video.pause(); },
+      };
+      return preview;
+    }
     const frame = card.querySelector('.work-study__image');
     const mount = card.querySelector('[data-preview-mount]');
     let player;
@@ -124,10 +173,10 @@
     }
 
     card.addEventListener('pointerenter', (event) => {
-      if (event.pointerType !== 'touch') start();
+      if (event.pointerType !== 'touch') { document.dispatchEvent(new Event('portfolio-preview-starting')); start(); }
     });
     card.addEventListener('focus', () => {
-      if (card.matches(':focus-visible')) start();
+      if (card.matches(':focus-visible')) { document.dispatchEvent(new Event('portfolio-preview-starting')); start(); }
     });
     ['pointerleave', 'pointercancel', 'blur', 'click'].forEach((type) => card.addEventListener(type, stop));
 
@@ -152,6 +201,7 @@
 
   const stopAll = () => previews.forEach((preview) => preview.stop());
   document.addEventListener('portfolio-works-filtered', stopAll);
+  document.addEventListener('portfolio-preview-starting', stopAll);
   document.addEventListener('visibilitychange', () => { if (document.hidden) stopAll(); });
   window.addEventListener('blur', stopAll);
   window.addEventListener('pagehide', (event) => {
