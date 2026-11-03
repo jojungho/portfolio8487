@@ -1,12 +1,11 @@
-import { normalizeVideo, thumbnail, getWorkTypes } from './content-model.mjs';
+import { normalizeVideo, getWorkTypes } from './content-model.mjs';
 
 const hero = document.querySelector('#portfolio');
-const poster = hero.querySelector('.hero__poster');
 const status = hero.querySelector('#hero-reel-status');
 const buttons = [...hero.querySelectorAll('[data-reel-index]')];
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const reels = [...hero.querySelectorAll('[data-hero-reel]')].map((video, index) => ({
-  video, index, surface: video, poster: video.poster,
+  video, index, surface: video,
   title: `배경 영상 ${String(index + 1).padStart(2, '0')}`,
 }));
 let activeIndex = 0;
@@ -59,9 +58,10 @@ function reveal(reel) {
 }
 function unavailable(reel) {
   pause(reel);
-  reel.surface.classList.remove('is-live');
+  const hasLocalFrame = !reel.youtubeId && reel.video.readyState >= 2;
+  reel.surface.classList.toggle('is-live', hasLocalFrame);
   reel.surface.dataset.playback = 'unavailable';
-  if (reel === reels[activeIndex]) status.textContent = '영상을 재생할 수 없어 썸네일을 표시합니다. VIDEO 버튼을 눌러 다시 시도할 수 있습니다.';
+  if (reel === reels[activeIndex]) status.textContent = hasLocalFrame ? '영상의 첫 프레임을 표시하고 있습니다. VIDEO 버튼을 눌러 다시 시도할 수 있습니다.' : '영상을 재생할 수 없습니다. VIDEO 버튼을 눌러 다시 시도할 수 있습니다.';
 }
 function sizePlayer(reel) {
   if (!reel.ready) return;
@@ -156,8 +156,10 @@ function select(index, userInitiated = false) {
   activeIndex = index;
   if (userInitiated) explicitPlayback = true;
   showPoster();
-  poster.style.backgroundImage = `url("${reel.poster}")`;
-  poster.setAttribute('aria-label', reel.title);
+  if (!reel.youtubeId && !reel.video.getAttribute('src')) {
+    reel.video.src = reel.video.dataset.src;
+    reel.video.load();
+  }
   buttons.forEach(button => {
     const active = Number(button.dataset.reelIndex) === index;
     button.classList.toggle('is-active', active);
@@ -168,6 +170,12 @@ function select(index, userInitiated = false) {
 }
 buttons.forEach(button => button.addEventListener('click', () => select(Number(button.dataset.reelIndex), true)));
 reels.forEach(reel => {
+  reel.video.addEventListener('loadeddata', () => {
+    if (!reel.youtubeId && reel === reels[activeIndex] && inView && !document.hidden) {
+      reel.surface.classList.add('is-live');
+      reel.surface.dataset.playback = 'ready';
+    }
+  });
   reel.video.addEventListener('playing', () => { if (!reel.youtubeId) reveal(reel); });
   reel.video.addEventListener('error', () => { if (!reel.youtubeId) unavailable(reel); });
 });
@@ -205,7 +213,6 @@ try {
     reel.title = video.title;
     if (video.type === 'youtube') {
       reel.youtubeId = video.youtubeId;
-      reel.poster = thumbnail(video);
       reel.surface = document.createElement('div');
       reel.surface.className = 'hero__youtube';
       reel.surface.id = `hero-youtube-${reel.index + 1}`;
@@ -215,8 +222,6 @@ try {
       buttons[reel.index].setAttribute('aria-controls', reel.surface.id);
     } else if (video.type === 'mp4') {
       reel.video.dataset.src = video.videoPath;
-      reel.video.poster = video.posterPath || reel.video.poster;
-      reel.poster = video.posterPath || reel.poster;
     }
   });
 } catch { /* Keep the two local test reels when no saved assignment can be loaded. */ }

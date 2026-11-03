@@ -29,7 +29,7 @@
         {
           "id": "krafton-image-2",
           "src": "assets/profile/krafton-tarae-clean.png",
-          "title": "TARAE The Unbound",
+          "title": "TARAE ( gamescom 2026 )",
           "alt": "TARAE The Unbound 이미지",
           "width": 1670,
           "height": 942
@@ -37,7 +37,7 @@
         {
           "id": "krafton-image-3",
           "src": "assets/profile/krafton-project-zeta-clean.png",
-          "title": "PROJECT ZETA",
+          "title": "ZETA ( gamescom 2026 )",
           "alt": "PROJECT ZETA 이미지",
           "width": 1688,
           "height": 932
@@ -45,7 +45,7 @@
         {
           "id": "krafton-image-4",
           "src": "assets/profile/krafton-no-law-clean.png",
-          "title": "NO LAW",
+          "title": "NO LAW ( 2026 )",
           "alt": "NO LAW 이미지",
           "width": 1665,
           "height": 945
@@ -53,7 +53,7 @@
         {
           "id": "krafton-image-5",
           "src": "assets/profile/krafton-pubg-deadeye-clean.png",
-          "title": "PUBG 트레일러",
+          "title": "VAROR  ( gamescom 2026 )",
           "alt": "PUBG 트레일러 이미지",
           "width": 1659,
           "height": 948
@@ -77,7 +77,7 @@
         {
           "id": "krafton-image-8",
           "src": "assets/profile/krafton-pubg-razer-clean.png",
-          "title": "Razer 헤드셋 시네마틱",
+          "title": "DJANA",
           "alt": "Razer 헤드셋 시네마틱 이미지",
           "width": 1647,
           "height": 955
@@ -360,5 +360,5 @@
       ]
     }
   ],
-  "revision": 3
+  "revision": 4
 }

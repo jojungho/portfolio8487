@@ -103,5 +103,5 @@ export function thumbnail(video) {
   return video.type === 'youtube' ? `https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg` : '';
 }
 export function detailUrl(video) {
-  return video.id === 'bt21' ? 'bt21.html' : `work.html?id=${encodeURIComponent(video.id)}`;
+  return video.id === 'bt21' && video.type === 'youtube' ? 'bt21.html' : `work.html?id=${encodeURIComponent(video.id)}`;
 }

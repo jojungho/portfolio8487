@@ -43,9 +43,9 @@ button { color: inherit; font: inherit; }
 .site-header--home .main-nav { position: absolute; left: 50%; margin-left: 0; transform: translateX(-50%); }
 
 .page-section { position: relative; min-height: 100svh; scroll-snap-align: start; overflow: hidden; }
-.hero { display: grid; align-items: center; isolation: isolate; background: #171413 url('assets/hero-concept.png') center 54% / cover no-repeat; }
+.hero { display: grid; align-items: center; isolation: isolate; background: #171413; }
 .hero__poster, .hero__video, .hero__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero__poster { z-index: -3; background: url('assets/hero-concept.png') center 54% / cover no-repeat; }
+.hero__poster { z-index: -3; background: #171413; }
 .hero__video { z-index: -2; object-fit: cover; object-position: center 54%; opacity: 0; transition: opacity 600ms ease; }
 .hero__video.is-live { opacity: 1; }
 .hero__youtube { position: absolute; inset: 0; z-index: -2; overflow: hidden; opacity: 0; pointer-events: none; transition: opacity 600ms ease; }
@@ -55,8 +55,8 @@ button { color: inherit; font: inherit; }
 .hero__shade { z-index: -1; background: linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.25) 44%, rgba(0,0,0,.08) 100%), linear-gradient(0deg, rgba(0,0,0,.36), transparent 24%, transparent 76%, rgba(0,0,0,.22)); }
 .hero__copy { position: absolute; top: clamp(120px, 17svh, 180px); left: clamp(30px, 6.5vw, 112px); width: min(780px, 78vw); margin: 0; padding: 0; text-align: left; text-shadow: 0 2px 24px rgba(0,0,0,.28); }
 .eyebrow { margin: 0 0 18px; color: rgba(255,255,255,.7); font-size: 9px; font-weight: 500; letter-spacing: .28em; }
-.hero h1 { margin: 0 0 18px; font-family: var(--serif); font-size: clamp(56px, 8vw, 128px); font-weight: 400; line-height: .96; letter-spacing: .025em; }
-.hero__role { margin: 0; font-size: clamp(11px, 1.1vw, 15px); font-weight: 500; letter-spacing: .28em; }
+.hero h1 { margin: 0 0 18px; font-family: var(--serif); font-size: clamp(50px, 7vw, 112px); font-weight: 400; line-height: .96; letter-spacing: .025em; }
+.hero__role { margin: 0; font-size: clamp(10px, 1vw, 14px); font-weight: 500; letter-spacing: .28em; }
 .hero__role--secondary { margin-top: 9px; color: rgba(255,255,255,.78); font-size: clamp(10px, .9vw, 12px); letter-spacing: .34em; }
 
 .hero-reels { position: absolute; z-index: 6; left: 50%; bottom: max(106px, calc(env(safe-area-inset-bottom) + 90px)); transform: translateX(-50%); display: flex; gap: 12px; padding: 10px; border: 1px solid rgba(255,255,255,.32); border-radius: 10px; background: rgba(0,0,0,.64); backdrop-filter: blur(14px); box-shadow: 0 10px 36px rgba(0,0,0,.48); }
