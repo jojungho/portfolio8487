@@ -238,4 +238,7 @@ button { color: inherit; font: inherit; }
 .page-section:not(.is-section-active) > .section-steps { visibility: hidden; pointer-events: none; }
 .home-profile .section-steps { position: fixed; top: 50%; right: clamp(20px, 4.4vw, 76px); float: none; margin: 0; transform: translateY(-50%); }
 @media (max-width: 900px) { .home-profile .section-steps { right: 18px; } }
-@media (max-width: 620px) { .home-profile .section-steps { right: 12px; } }
+@media (max-width: 620px) { .home-profile .section-steps { right: 12px; } }.home-profile { padding-inline: 0; }
+.home-profile__content { width: min(1600px, 90%); padding-right: 0; margin-inline: auto; text-align: left; }
+@media (max-width: 900px) { .home-profile__content { width: 84%; } }
+@media (max-width: 620px) { .home-profile__content { width: 86%; } }
