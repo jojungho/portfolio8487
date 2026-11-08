@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": 16,
+  "revision": 20,
   "videos": [
     {
       "title": "ShowReels",
@@ -41,7 +41,7 @@
       "role": "",
       "channel": "",
       "createdAt": "2026-10-29T00:00:00.000Z",
-      "updatedAt": "2026-11-03T14:06:26.026Z",
+      "updatedAt": "2026-11-08T15:36:10.889Z",
       "deletedAt": null,
       "workType": "showreel",
       "heroSlots": [
@@ -62,7 +62,7 @@
       ],
       "id": "c897a0d3-cee6-4f4c-acc7-a3a33c30ce25",
       "createdAt": "2026-11-02T08:21:16.215Z",
-      "updatedAt": "2026-11-03T14:06:17.041Z",
+      "updatedAt": "2026-11-08T15:36:17.455Z",
       "deletedAt": null,
       "videoPath": "assets/videos/hero-reel-02.mp4"
     }

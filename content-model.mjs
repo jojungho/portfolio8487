@@ -76,7 +76,7 @@ export function normalizeVideo(input, availableWorkTypes = workTypes) {
   const workType = input.workType || 'showreel';
   if (!availableWorkTypes.some(item => item.id === workType)) throw new Error('WORKS 분류를 선택해주세요.');
   const record = {
-    title: field('title', 120, true), category: input.category, workType,
+    title: field('title', 120, true), category: input.category, workType, showOnHomepage: input.showOnHomepage !== false,
     description: field('description', 4000), role: field('role', 200), channel: field('channel', 200),
     type: input.type, heroSlots: normalizeHeroSlots(input.heroSlots),
   };

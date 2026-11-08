@@ -17,6 +17,7 @@ let orderState = null;
 let draggingId = null;
 const fields = { type: $('#video-type'), url: $('#video-url'), posterPath: $('#video-poster'), title: $('#video-title'), category: $('#video-category'), workType: $('#video-work-type'), description: $('#video-description'), role: $('#video-role'), channel: $('#video-channel') };
 const heroSlotInputs = [...form.querySelectorAll('input[name="heroSlots"]')];
+const homeVisibility = $('#show-on-homepage');
 const node = (tag, className, text) => {
   const result = document.createElement(tag);
   if (className) result.className = className;
@@ -339,6 +340,7 @@ function openEditor(video) {
   fields.category.value = video?.category || $('#filter-category').value || 'game-cinematic';
   fields.workType.value = video?.workType || 'showreel';
   heroSlotInputs.forEach(input => { input.checked = (video?.heroSlots || []).includes(Number(input.value)); });
+  homeVisibility.checked = video?.showOnHomepage !== false;
   $('#hero-slot-current').textContent = [1, 2].map(slot => {
     const current = store.videos.find(item => !item.deletedAt && item.heroSlots?.includes(slot));
     return `${slot}번 현재: ${current?.title || '테스트 영상'}`;
@@ -378,6 +380,7 @@ form.addEventListener('submit', async event => {
   const video = { type: fields.type.value };
   Object.entries(fields).forEach(([name, element]) => { video[name] = element.value.trim(); });
   video.heroSlots = heroSlotInputs.filter(input => input.checked).map(input => Number(input.value));
+  video.showOnHomepage = homeVisibility.checked;
   setBusy(true); $('#form-error').textContent = ''; $('#save-video').textContent = '저장 중…';
   try {
     store = await api(editingId ? `videos/${encodeURIComponent(editingId)}` : 'videos', editingId ? 'PATCH' : 'POST', { revision: store.revision, video });

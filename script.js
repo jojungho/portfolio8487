@@ -1,18 +1,22 @@
-const sectionObserver = new IntersectionObserver((entries) => {
-  for (const entry of entries) {
-    if (!entry.isIntersecting) continue;
-    const activeId = entry.target.id;
-    document.querySelectorAll('.section-step').forEach((step) => {
-      const active = step.dataset.step === activeId;
-      step.classList.toggle('is-active', active);
-      if (active) step.setAttribute('aria-current', 'location');
-      else step.removeAttribute('aria-current');
-    });
+const sections = [...document.querySelectorAll('.page-section')];
+function updateSectionSteps() {
+  const marker = window.innerHeight * 0.5;
+  let activeId = sections[0]?.id;
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= marker) activeId = section.id;
+    else break;
   }
-}, { threshold: 0.55 });
-
-document.querySelectorAll('.page-section').forEach((section) => sectionObserver.observe(section));
-
+  sections.forEach(section => section.classList.toggle('is-section-active', section.id === activeId));
+  document.querySelectorAll('.section-step').forEach(step => {
+    const active = step.dataset.step === activeId;
+    step.classList.toggle('is-active', active);
+    if (active) step.setAttribute('aria-current', 'location');
+    else step.removeAttribute('aria-current');
+  });
+}
+window.addEventListener('scroll', updateSectionSteps, { passive: true });
+window.addEventListener('resize', updateSectionSteps);
+updateSectionSteps();
 // Keep the card's reference area stable while its visual surface rotates.
 const hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');

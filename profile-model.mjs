@@ -40,7 +40,7 @@ export function normalizeProfile(input) {
 }
 export const escapeHTML = value => String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
 const dateLabel = value => `${Number(value.slice(0, 4))}년 ${Number(value.slice(5))}월`;
-export function renderCareers(profile) {
+export function renderCareers(profile, assetPrefix = '../') {
   const e = escapeHTML;
   return profile.careers.map(career => `<li class="career-entry${career.current ? ' career-entry--current' : ''}">
     <article aria-labelledby="${e(career.id)}-title">
@@ -50,7 +50,7 @@ export function renderCareers(profile) {
       <p class="career-role">${e(career.role)} <span>${e(career.position)}</span></p>
       <ul class="career-projects" aria-label="${e(career.company)} 주요 작업">${career.projects.map(project => `<li>${e(project)}</li>`).join('')}</ul>
       <div class="career-gallery${career.layout === 'video' ? ' career-gallery--video' : ''}" role="group" aria-label="${e(career.company)} 작품 이미지">
-        ${career.images.map(image => `<figure class="career-poster career-poster--work" style="--poster-ratio: ${image.width / image.height}" tabindex="0" aria-label="${e(image.title)} 이미지"><img src="../${e(image.src)}" alt="${e(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" /><figcaption class="career-poster__caption" aria-hidden="true">${e(image.title)}</figcaption></figure>`).join('\n')}
+        ${career.images.map(image => `<figure class="career-poster career-poster--work" style="--poster-ratio: ${image.width / image.height}" tabindex="0" aria-label="${e(image.title)} 이미지"><img src="${e(assetPrefix)}${e(image.src)}" alt="${e(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" /><figcaption class="career-poster__caption" aria-hidden="true">${e(image.title)}</figcaption></figure>`).join('\n')}
       </div>
     </article>
   </li>`).join('\n');

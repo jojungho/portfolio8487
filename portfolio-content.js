@@ -34,7 +34,8 @@ function card(video) {
   article.dataset.managedVideo = video.id;
   article.dataset.workType = video.workType;
   const link = make('a', 'work-study__button');
-  link.href = detailUrl(video);
+  const detailPath = detailUrl(video);
+  link.href = location.pathname.includes('/projects/') ? detailPath : `projects/${detailPath}`;
   link.setAttribute('aria-label', `${video.title} — view project`);
   link.dataset.previewTitle = video.title;
   link.dataset.previewState = 'idle';
@@ -157,7 +158,8 @@ filters?.addEventListener('click', event => {
 applyWorkFilter();
 
 async function load() {
-  const response = await fetch('../data/videos.json', { cache: 'no-store' });
+  const dataPath = location.pathname.includes('/projects/') ? '../data/videos.json' : 'data/videos.json';
+  const response = await fetch(dataPath, { cache: 'no-store' });
   if (!response.ok) throw new Error('목록을 불러오지 못했습니다.');
   const store = await response.json();
   const availableWorkTypes = getWorkTypes(store);
@@ -168,7 +170,7 @@ async function load() {
   const grid = document.querySelector('[data-works-category]');
   if (grid) {
     grid.querySelectorAll('[data-managed-video]').forEach(element => element.remove());
-    const matches = videos.filter(video => video.category === grid.dataset.worksCategory);
+    const matches = videos.filter(video => video.category === grid.dataset.worksCategory && (!grid.hasAttribute('data-homepage-works') || video.showOnHomepage !== false));
     if (matches.length) {
       grid.classList.add('works-grid--video');
       grid.closest('.project-works').classList.add('project-works--tiles');

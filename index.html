@@ -6,17 +6,20 @@
     <meta name="theme-color" content="#080808" />
     <meta name="description" content="Jo Jung Ho — Rigging Artist." />
     <title>JO JUNG HO — Rigging Artist</title>
+    <link rel="stylesheet" href="project.css" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
     <script type="module" src="hero-reels.js"></script>
+    <script type="module" src="portfolio-content.js"></script>
+    <script type="module" src="profile-content.js"></script>
   </head>
   <body>
     <header class="site-header site-header--home" aria-label="Main navigation">
       <nav class="main-nav">
-        <a href="#portfolio">WORK</a>
-        <a href="#featured">FEATURED</a>
+        <a href="#portfolio">HOME</a>
+        <a href="#featured">WORKS</a>
+        <a href="#profile">PROFILE</a>
       </nav>
-      <a class="header-contact" href="#featured">EXPLORE WORK <span aria-hidden="true">↘</span></a>
     </header>
 
     <main>
@@ -48,42 +51,65 @@
           </a>
           <span class="section-steps__line" aria-hidden="true"></span>
           <a class="section-step" href="#featured" data-step="featured">
-            <span class="section-step__dot"></span><span class="section-step__number">02</span><span class="section-step__label">FEATURED</span>
+            <span class="section-step__dot"></span><span class="section-step__number">02</span><span class="section-step__label">WORKS</span>
+          </a>
+          <a class="section-step" href="#profile" data-step="profile">
+            <span class="section-step__dot"></span><span class="section-step__number">03</span><span class="section-step__label">PROFILE</span>
           </a>
         </nav>
       </section>
 
-      <section class="featured page-section" id="featured" aria-labelledby="featured-title">
-        <div class="featured__inner">
-          <div class="featured__heading">
-            <div>
-              <p class="section-index"><span>02</span><span class="section-index__rule"></span></p>
-              <h2 id="featured-title">FEATURED</h2>
-            </div>
+      <section class="project-works project-works--tiles home-works page-section" id="featured" aria-labelledby="works-title">
+        <div class="project-container">
+          <div class="works-heading">
+            <h2 id="works-title">WORKS</h2>
+            <a class="works-manage" href="admin/?category=game-cinematic" data-local-video-manager hidden>영상 관리 <span aria-hidden="true">↗</span></a>
           </div>
-
-          <div class="project-strip" aria-label="Featured projects">
-            <a class="project-card" href="projects/creature-rigging.html" aria-label="Explore CINEMATIC&amp;VFX ShowReel">
-              <img class="project-card__image" src="assets/projects/creature-rigging.png" alt="Blue science-fiction eye with a small silhouetted figure" loading="lazy" width="750" height="934" />
-              <span class="project-card__content"><span class="project-card__title"><span class="project-card__title-line">CINEMATIC&amp;VFX</span><span class="project-card__title-line">ShowReel</span></span><span class="project-card__action">View more</span></span>
-            </a>
-            <a class="project-card" href="projects/cloth-simulation.html" aria-label="Explore PROFILE">
-              <img class="project-card__image" src="assets/projects/cloth-simulation.png" alt="A ruined science-fiction city shrouded in mist beneath massive structures" loading="lazy" width="1200" height="675" />
-              <span class="project-card__content"><span class="project-card__title">PROFILE</span><span class="project-card__action">View more</span></span>
-            </a>
+          <div class="works-filters" role="group" aria-label="Works category" data-works-filters>
+            <button type="button" data-work-filter="all" aria-pressed="true" aria-controls="home-works-grid">ALL</button>
+            <button type="button" data-work-filter="showreel" aria-pressed="false" aria-controls="home-works-grid">ShowReel</button>
+            <button type="button" data-work-filter="rigging" aria-pressed="false" aria-controls="home-works-grid">Rigging</button>
           </div>
-
-          <p class="featured__note">CONCEPT STUDIES · TEST IMAGES</p>
+          <div class="works-grid works-grid--video works-grid--filterable" id="home-works-grid" data-works-category="game-cinematic" data-homepage-works></div>
+          <p class="works-empty" data-works-empty role="status" hidden>No works in this category yet.</p>
         </div>
-
-        <nav class="section-steps section-steps--featured" aria-label="Page sections">
+        <nav class="section-steps" aria-label="Page sections">
           <a class="section-step" href="#portfolio" data-step="portfolio">
             <span class="section-step__dot"></span><span class="section-step__number">01</span><span class="section-step__label">PORTFOLIO</span>
           </a>
           <span class="section-steps__line" aria-hidden="true"></span>
           <a class="section-step is-active" href="#featured" data-step="featured" aria-current="location">
-            <span class="section-step__dot"></span><span class="section-step__number">02</span><span class="section-step__label">FEATURED</span>
+            <span class="section-step__dot"></span><span class="section-step__number">02</span><span class="section-step__label">WORKS</span>
           </a>
+          <a class="section-step" href="#profile" data-step="profile">
+            <span class="section-step__dot"></span><span class="section-step__number">03</span><span class="section-step__label">PROFILE</span>
+          </a>
+        </nav>
+      </section>
+      <section class="home-profile page-section" id="profile" aria-labelledby="profile-title">
+        <div class="home-profile__content">
+          <div class="home-profile__intro">
+            <p class="home-profile__eyebrow">03 <span aria-hidden="true">/</span> PROFILE</p>
+            <h2 id="profile-title">JO JUNGHO</h2>
+            <p class="home-profile__specialty">Rigging, CFX</p>
+            <ul class="home-profile__software" aria-label="사용 소프트웨어">
+              <li><img src="assets/software/maya.png" alt="Maya" width="40" height="40" /></li>
+              <li><img src="assets/software/3ds-max.png" alt="3ds Max" width="40" height="40" /></li>
+              <li><img src="assets/software/houdini.png" alt="Houdini" width="40" height="40" /></li>
+              <li><img src="assets/software/unreal-engine.svg" alt="Unreal Engine" width="40" height="40" /></li>
+            </ul>
+          </div>
+          <section class="home-profile__experience" id="profile-experience" aria-label="경력 및 주요 작업">
+            <ol class="career-list" data-profile-careers>
+              <li class="career-entry"><article><h3>KRAFTON Inc.</h3><p>Rigging · CFX</p></article></li>
+            </ol>
+          </section>
+        </div>
+        <nav class="section-steps" aria-label="Page sections">
+          <a class="section-step" href="#portfolio" data-step="portfolio"><span class="section-step__dot"></span><span class="section-step__number">01</span><span class="section-step__label">PORTFOLIO</span></a>
+          <span class="section-steps__line" aria-hidden="true"></span>
+          <a class="section-step" href="#featured" data-step="featured"><span class="section-step__dot"></span><span class="section-step__number">02</span><span class="section-step__label">WORKS</span></a>
+          <a class="section-step is-active" href="#profile" data-step="profile" aria-current="location"><span class="section-step__dot"></span><span class="section-step__number">03</span><span class="section-step__label">PROFILE</span></a>
         </nav>
       </section>
     </main>
