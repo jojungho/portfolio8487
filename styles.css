@@ -104,7 +104,7 @@ button { color: inherit; font: inherit; }
 .home-works .project-container { height: 100%; display: flex; flex-direction: column; justify-content: center; }
 .home-works .works-heading { margin-bottom: clamp(22px, 4vh, 42px); }
 .home-works .works-filters { margin-bottom: clamp(20px, 3vh, 32px); }
-.home-works .works-grid--video { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-works .works-grid--video { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
 .home-works .works-grid--video .work-study__title { font-weight: 500; }
 .home-works .works-empty { align-self: flex-start; }
 
@@ -123,6 +123,7 @@ button { color: inherit; font: inherit; }
   .section-step__label { font-size: 7px; }
   .featured__copy { width: min(76vw, 690px); margin-left: 8vw; }
   .featured h2 { font-size: clamp(48px, 8vw, 84px); }
+  .home-works .works-grid--video { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
 }
 
 @media (max-width: 620px) {
@@ -163,7 +164,7 @@ button { color: inherit; font: inherit; }
   .home-profile__career-list time { font-size: 9px; }
   .home-works { height: auto; min-height: 100svh; overflow: visible; padding-block: 72px 64px; }
   .home-works .project-container { height: auto; }
-  .home-works .works-grid--video { grid-template-columns: 1fr; }
+  .home-works .works-grid--video { grid-template-columns: 1fr; gap: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -177,6 +178,7 @@ button { color: inherit; font: inherit; }
 .home-profile__eyebrow span { padding-inline: 8px; color: #6d7268; }
 .home-profile__intro h2 { margin: 24px 0 14px; font-family: var(--serif); font-size: clamp(52px, 7vw, 100px); font-weight: 400; line-height: 1; letter-spacing: -.035em; }
 .home-profile__specialty { margin: 0; color: #d9dad3; font-size: clamp(19px, 2vw, 27px); }
+.home-profile__summary { margin: 0 0 22px; color: #b8bcb2; font-size: 14px; line-height: 1.7; }
 .home-profile__software { display: flex; align-items: center; gap: 20px; margin: 25px 0 34px; padding: 0; list-style: none; }
 .home-profile__software img { display: block; width: 36px; height: 36px; object-fit: contain; }
 .home-profile__software li:last-child img { filter: brightness(0) invert(1); }
