@@ -1,7 +1,23 @@
 {
   "version": 1,
-  "revision": 37,
+  "revision": 40,
   "videos": [
+    {
+      "title": "FBX 애니 익스포터",
+      "category": "game-cinematic",
+      "workType": "rigging",
+      "showOnHomepage": true,
+      "description": "바디, 메타휴먼, 각종 프랍 등등.. 애니메이션 FBX 익스포터",
+      "role": "rigging",
+      "channel": "",
+      "type": "mp4",
+      "heroSlots": [],
+      "videoPath": "assets/videos/FBXPublisher.mp4",
+      "id": "126491bc-79e7-4f36-a506-5e7e5bc3ee01",
+      "createdAt": "2026-11-11T13:50:58.837Z",
+      "updatedAt": "2026-11-11T13:52:50.782Z",
+      "deletedAt": null
+    },
     {
       "title": "쉐이더 어싸인 툴",
       "category": "game-cinematic",
@@ -67,11 +83,11 @@
       "deletedAt": null
     },
     {
-      "title": "코 컬루젼 시뮬레이션",
+      "title": "컬루젼 시뮬레이션",
       "category": "game-cinematic",
       "workType": "rigging",
       "showOnHomepage": true,
-      "description": "코 주변 컬루젼, 근육 시뮬레이션 진행",
+      "description": "코 주변 컬루젼, 근육 시뮬레이션",
       "role": "ziva dynamics",
       "channel": "",
       "type": "mp4",
@@ -79,7 +95,7 @@
       "videoPath": "assets/videos/ziva_face.mp4",
       "id": "2952a6a7-e878-4bd7-b471-d7a3d2248b93",
       "createdAt": "2026-11-10T12:49:05.711Z",
-      "updatedAt": "2026-11-10T13:34:05.931Z",
+      "updatedAt": "2026-11-11T13:53:19.652Z",
       "deletedAt": null
     },
     {
