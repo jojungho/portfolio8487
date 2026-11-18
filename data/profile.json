@@ -59,6 +59,30 @@
           "height": 948
         },
         {
+          "id": "image-c9eab2cd-5d0b-4833-a0f2-f7c615bca6b3",
+          "src": "assets/profile/uploads/3d72ede1-2cc7-42e4-a2e1-695098a9421d.png",
+          "title": "NEWSTATE",
+          "alt": "NEWSTATE",
+          "width": 1024,
+          "height": 572
+        },
+        {
+          "id": "image-3803a8cb-acaa-455b-ac00-38a08cacf3f5",
+          "src": "assets/profile/uploads/02312954-ba15-432c-a53a-4e1314121bee.jpg",
+          "title": "BLACK BUDGET",
+          "alt": "BLACK BUDGET",
+          "width": 600,
+          "height": 300
+        },
+        {
+          "id": "krafton-image-9",
+          "src": "assets/profile/krafton-pubg-8th-anniversary-clean.png",
+          "title": "배틀그라운드 8주년 시네마틱 트레일러",
+          "alt": "배틀그라운드 8주년 시네마틱 트레일러 이미지",
+          "width": 1672,
+          "height": 941
+        },
+        {
           "id": "krafton-image-6",
           "src": "assets/profile/krafton-pubg-loopy-clean.png",
           "title": "PUBG MOBILE × ZANMANG LOOPY",
@@ -83,14 +107,6 @@
           "height": 955
         },
         {
-          "id": "krafton-image-9",
-          "src": "assets/profile/krafton-pubg-8th-anniversary-clean.png",
-          "title": "배틀그라운드 8주년 시네마틱 트레일러",
-          "alt": "배틀그라운드 8주년 시네마틱 트레일러 이미지",
-          "width": 1672,
-          "height": 941
-        },
-        {
           "id": "image-5d930d98-50f0-42ea-89b1-5cced911e41a",
           "src": "assets/profile/uploads/e99243b3-7c25-4930-917d-fa1c619c29d4.png",
           "title": "BT21",
@@ -99,12 +115,12 @@
           "height": 578
         },
         {
-          "id": "image-c9eab2cd-5d0b-4833-a0f2-f7c615bca6b3",
-          "src": "assets/profile/uploads/3d72ede1-2cc7-42e4-a2e1-695098a9421d.png",
-          "title": "NEWSTATE",
-          "alt": "NEWSTATE",
-          "width": 1024,
-          "height": 572
+          "id": "image-82fa87ed-9aad-433d-a402-3e40a6f92f04",
+          "src": "assets/profile/uploads/e49381f5-dd05-4e48-a629-57fe1f7527ac.jpg",
+          "title": "TEENIEPING",
+          "alt": "TEENIEPING",
+          "width": 848,
+          "height": 457
         }
       ]
     },
@@ -376,5 +392,5 @@
       ]
     }
   ],
-  "revision": 5
+  "revision": 6
 }
